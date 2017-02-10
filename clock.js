@@ -98,4 +98,4 @@ function drawHand(ctx, pos, length, width) {
 };
 
 //drawClock();
-setInterval(drawClock, 1000);
+setInterval(drawClock, 1000); //Setting the speed of ticking
