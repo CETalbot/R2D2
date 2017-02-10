@@ -42,7 +42,7 @@ function drawClock() {
     drawNumbers(ctx, radius);
 };
 
-function drawNumbers(ctx, radius) {
+function drawNumbers(ctx, radius) { // function draw numbers with var ctx and radius
     var ang;
     var num;
     ctx.font = radius*0.15 + "px arial";
