@@ -61,8 +61,11 @@ function drawNumbers(ctx, radius) {
 };
 
 function drawClock() {
+    //Draws circle face of the clock
     drawFace(ctx, radius);
+    //Draws numbers of clock
     drawNumbers(ctx, radius);
+    //Draws hands of clock
     drawTime(ctx, radius);
 };
 
