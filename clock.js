@@ -68,11 +68,15 @@ function drawClock() {
     //Draws hands of clock
     drawTime(ctx, radius);
 };
-
+//Time function to get exact time
 function drawTime(ctx, radius){
+    //variable to get set time
     var now = new Date();
+    //variable to get the hours
     var hour = now.getHours();
+    //variable to get the minutes
     var minute = now.getMinutes();
+    //variable to get the seconds 
     var second = now.getSeconds();
     //hour
     hour=hour%12;
