@@ -1,5 +1,5 @@
 var canvas = document.getElementById("canvas");//creating a canvas object from the HTML canvas element in the clockIndex.html
-var ctx = canvas.getContext("2d");
+var ctx = canvas.getContext("2d");//creating a 2D object so that you are able to start drawing  
 var radius = canvas.height / 2;
 ctx.translate(radius, radius);
 radius = radius * 0.90
