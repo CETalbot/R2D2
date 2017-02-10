@@ -15,12 +15,12 @@ function drawClock() {
     drawFace(ctx, radius);
 };
 
-function drawFace(ctx, radius) {
+function drawFace(ctx, radius) { // draw face of the clock (circle)
     var grad;
 
     ctx.beginPath();
-    ctx.arc(0, 0, radius, 0, 2*Math.PI);
-    ctx.fillStyle = 'white';
+    ctx.arc(0, 0, radius, 0, 2*Math.PI); //size of the circle 
+    ctx.fillStyle = 'white'; // the cricle is filled with white colour
     ctx.fill();
 
     grad = ctx.createRadialGradient(0,0,radius*0.95, 0,0,radius*1.05);
@@ -28,12 +28,12 @@ function drawFace(ctx, radius) {
     grad.addColorStop(0.5, 'white');
     grad.addColorStop(1, '#333');
     ctx.strokeStyle = grad;
-    ctx.lineWidth = radius*0.1;
+    ctx.lineWidth = radius*0.1; //the inner line of the circle will change the width
     ctx.stroke();
 
     ctx.beginPath();
     ctx.arc(0, 0, radius*0.1, 0, 2*Math.PI);
-    ctx.fillStyle = '#333';
+    ctx.fillStyle = '#333'; //the numbers of the clocks are coloured grey.
     ctx.fill();
 };
 
