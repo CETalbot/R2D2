@@ -23,23 +23,23 @@ function drawFace(ctx, radius) {//creating a function called drawClock which dra
     ctx.fillStyle = 'white';//colouring the clock white
     ctx.fill();//colour in the circle
 
-    grad = ctx.createRadialGradient(0,0,radius*0.95, 0,0,radius*1.05);
-    grad.addColorStop(0, '#333');
-    grad.addColorStop(0.5, 'white');
-    grad.addColorStop(1, '#333');
-    ctx.strokeStyle = grad;
-    ctx.lineWidth = radius*0.1;
-    ctx.stroke();
+    grad = ctx.createRadialGradient(0,0,radius*0.95, 0,0,radius*1.05);//creating a gradient. A radial gradient starts at the centre of a shape and goes out. The gradient is 95% and 105% of the radius of the clock
+    grad.addColorStop(0, '#333');//creating colour stops for the inner middle and outer edges of the arc. Colour stops create 3D effects
+    grad.addColorStop(0.5, 'white');//creating colour stops for the inner middle and outer edges of the arc. Colour stops create 3D effects
+    grad.addColorStop(1, '#333');//creating colour stops for the inner middle and outer edges of the arc. Colour stops create 3D effects
+    ctx.strokeStyle = grad;//the stroke style is set as the gradient
+    ctx.lineWidth = radius*0.1;//the width of the line is set to 10% of the radius
+    ctx.stroke();//drawing the circle
 
-    ctx.beginPath();
-    ctx.arc(0, 0, radius*0.1, 0, 2*Math.PI);
-    ctx.fillStyle = '#333';
-    ctx.fill();
+    ctx.beginPath();//begins drawing the path - begins to draw the centre of the clock
+    ctx.arc(0, 0, radius*0.1, 0, 2*Math.PI);//creating the circle. x,y,radius (the radius is 10% of the total radius of the circle that creates the clock),startAngle,endAngle. Pi is used to work out the circumference of the circle. Pi is a property of Math 
+    ctx.fillStyle = '#333';//filling the circle a certain colour
+    ctx.fill();//colouring in the circle for the centre of the clock
 };
 
-function drawClock() {
-    drawFace(ctx, radius);
-    drawNumbers(ctx, radius);
+function drawClock() {//creating a function called drawClock
+    drawFace(ctx, radius);//calling the drawFace function
+    drawNumbers(ctx, radius);//calling the drawNumbers function
 };
 
 function drawNumbers(ctx, radius) { // function draw numbers with var ctx and radius
@@ -90,8 +90,8 @@ function drawTime(ctx, radius){
     drawHand(ctx, second, radius*0.9, radius*0.02);
 };
 
-function drawHand(ctx, pos, length, width) {
-    ctx.beginPath();
+function drawHand(ctx, pos, length, width) {//creating a fucntion to create the hands of the clock
+    ctx.beginPath();//begins drawing the path
     ctx.lineWidth = width;
     ctx.lineCap = "round";
     ctx.moveTo(0,0);
@@ -102,4 +102,4 @@ function drawHand(ctx, pos, length, width) {
 };
 
 //drawClock();
-setInterval(drawClock, 1000); //Setting the speed of ticking
+setInterval(drawClock, 1000); //Setting the speed of ticking by calling the drawClock function then setting the speed
