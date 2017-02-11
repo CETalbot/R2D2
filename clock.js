@@ -1,7 +1,7 @@
 var canvas = document.getElementById("canvas");//creating a canvas object from the HTML canvas element in the clockIndex.html
 var ctx = canvas.getContext("2d");//creating a 2D object so that you are able to start drawing  
-var radius = canvas.height / 2;
-ctx.translate(radius, radius);
+var radius = canvas.height / 2;//the height is used as the value of the radius. This makes the clock work no matter what the height of the canvas is
+ctx.translate(radius, radius);//ctx.translate is a method that is used to remap the (0,0) position on the canvas. It uses the value of the radius to do this
 radius = radius * 0.90
 drawClock();
 
