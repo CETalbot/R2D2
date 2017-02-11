@@ -78,7 +78,9 @@ function drawTime(ctx, radius){
     var minute = now.getMinutes();
     //variable to get the seconds 
     var second = now.getSeconds();
-    //hour
+    /* For hour, minute, second this is to work out the angles to hands should be 
+    positioned on the clock face and to draw the length */
+    //hour 
     hour=hour%12;
     hour=(hour*Math.PI/6)+(minute*Math.PI/(6*60))+(second*Math.PI/(360*60));
     drawHand(ctx, hour, radius*0.5, radius*0.07);
