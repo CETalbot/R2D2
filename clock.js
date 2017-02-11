@@ -2,17 +2,17 @@ var canvas = document.getElementById("canvas");//creating a canvas object from t
 var ctx = canvas.getContext("2d");//creating a 2D object so that you are able to start drawing  
 var radius = canvas.height / 2;//the height is used as the value of the radius. This makes the clock work no matter what the height of the canvas is
 ctx.translate(radius, radius);//ctx.translate is a method that is used to remap the (0,0) position on the canvas. It uses the value of the radius to do this
-radius = radius * 0.90
-drawClock();
+radius = radius * 0.90//changing the radius size. 1 is 100% of the size of the radius (full size of the radius). 0.9 is 90% so the size of clock is now has a smaller radius
+drawClock();//calling the drawClock function
 
-function drawClock() {
-    ctx.arc(0, 0, radius, 0 , 2*Math.PI);
-    ctx.fillStyle = "white";
-    ctx.fill();
+function drawClock() {//drawing the face of the clock
+    ctx.arc(0, 0, radius, 0 , 2*Math.PI);//creating the circle. x,y,radius,startAngle,endAngle. Pi is used to work out the circumference of the circle. Pi is a property of Math
+    ctx.fillStyle = "white";//colouring the clock white
+    ctx.fill();//colour in the circle
 };
 
 function drawClock() {
-    drawFace(ctx, radius); //draw the face of the clock
+    drawFace(ctx, radius); //draw the face of the clock. this is done by calling the drawFace function
 };
 
 function drawFace(ctx, radius) {
