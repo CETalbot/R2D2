@@ -12,7 +12,7 @@ function drawClock() {
 };
 
 function drawClock() {
-    drawFace(ctx, radius);
+    drawFace(ctx, radius); //draw the face of the clock
 };
 
 function drawFace(ctx, radius) {
