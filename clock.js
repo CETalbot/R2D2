@@ -15,13 +15,13 @@ function drawClock() {
     drawFace(ctx, radius); //draw the face of the clock. this is done by calling the drawFace function
 };
 
-function drawFace(ctx, radius) {
-    var grad;
+function drawFace(ctx, radius) {//creating a function called drawClock which draws the face of the clock
+    var grad;//creating a variable for the gradient
 
-    ctx.beginPath();
-    ctx.arc(0, 0, radius, 0, 2*Math.PI);
-    ctx.fillStyle = 'white';
-    ctx.fill();
+    ctx.beginPath();//begins drawing the path - begins to draw the circle
+    ctx.arc(0, 0, radius, 0, 2*Math.PI);//creating the circle. x,y,radius,startAngle,endAngle. Pi is used to work out the circumference of the circle. Pi is a property of Math
+    ctx.fillStyle = 'white';//colouring the clock white
+    ctx.fill();//colour in the circle
 
     grad = ctx.createRadialGradient(0,0,radius*0.95, 0,0,radius*1.05);
     grad.addColorStop(0, '#333');
