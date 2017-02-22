@@ -60,33 +60,21 @@
 	drawRectangle(319,92,20,35);//last rectangle inside bottom of head
 	drawRectangle(150,130,200,11);//rectangle for neck
 
+	
+	function drawLine (a,b,c,d){
+    	ctx.moveTo(a,b);
+		ctx.lineTo(c,d);
+    	ctx.stroke();
 
-		ctx.moveTo(150,505);
-		ctx.lineTo(190,470);//left leg line
-		ctx.stroke();
-
-		ctx.moveTo(350,505);
-		ctx.lineTo(310,470);//right leg line
-		ctx.stroke();
-
-
-
-		//lines for foot thing
-		ctx.moveTo(210,470);//left hand top line
-		ctx.lineTo(240,510);
-		ctx.stroke();
-
-		ctx.moveTo(290,470);//right hand top line
-		ctx.lineTo(265,510);
-		ctx.stroke();
-
-		ctx.moveTo(240,525);//left hand bottom line
-		ctx.lineTo(230,550);
-		ctx.stroke();
-
-		ctx.moveTo(265,525);//right hand bottom line
-		ctx.lineTo(280,550);
-		ctx.stroke();
+	};
+	//leg
+		drawLine(150,505,190,470);//left leg line
+		drawLine(350,505,310,470);//right leg line
+	//foot
+		drawLine(210,470,240,510);//left hand top line
+		drawLine(290,470,265,510);//right hand top line
+		drawLine(240,525,230,550);//left hand bottom line
+		drawLine(265,525,280,550);//right hand bottom line
 
 
 
