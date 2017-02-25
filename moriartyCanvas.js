@@ -28,6 +28,12 @@ ctx.moveTo(230,400);
 ctx.bezierCurveTo(280,420,290,400,300,400);
 ctx.stroke();
 
+ctx.beginPath();
+ctx.moveTo(230,400);
+ctx.bezierCurveTo(220,440,280,440,250,560);
+ctx.stroke();
+
+
 /*Get Sherlock text
 ctx.font = "30px Arial";
 ctx.fillText("GET SHERLOCK", 125, canvas.height/2); */
