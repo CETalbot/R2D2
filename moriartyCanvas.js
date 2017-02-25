@@ -14,8 +14,18 @@ ctx.stroke();
 
 //the neck
 ctx.beginPath();
-ctx.moveTo(240,265);
-ctx.lineTo(240,240);
+ctx.moveTo(220,227);
+ctx.bezierCurveTo(230,250,230,240,230,260);
+ctx.stroke();
+
+ctx.beginPath();
+ctx.moveTo(230,260);
+ctx.bezierCurveTo(200,260,210,320,230,400);
+ctx.stroke();
+
+ctx.beginPath();
+ctx.moveTo(230,400);
+ctx.bezierCurveTo(280,420,290,400,300,400);
 ctx.stroke();
 
 /*Get Sherlock text
