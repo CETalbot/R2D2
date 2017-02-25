@@ -33,6 +33,30 @@ ctx.moveTo(230,400);
 ctx.bezierCurveTo(220,440,280,440,250,560);
 ctx.stroke();
 
+ctx.beginPath();
+ctx.moveTo(276,540);
+ctx.bezierCurveTo(310,580,260,560,250,560);
+ctx.stroke();
+
+ctx.beginPath();
+ctx.moveTo(278,436);
+ctx.bezierCurveTo(272,440,299,440,276,540);
+ctx.stroke();
+
+ctx.beginPath();
+ctx.moveTo(278,436);
+ctx.bezierCurveTo(278,450,300,440,320,555);
+ctx.stroke();
+
+ctx.beginPath();
+ctx.moveTo(335,525);
+ctx.bezierCurveTo(380,550,325,553,320,555);
+ctx.stroke();
+
+ctx.beginPath();
+ctx.moveTo(300,400);
+ctx.bezierCurveTo(320,460,320,450,335,525);
+ctx.stroke();
 
 /*Get Sherlock text
 ctx.font = "30px Arial";
