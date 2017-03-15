@@ -8,14 +8,16 @@
 
 
 
-<!--https://siongui.github.io/2012/10/08/javascript-play-sound-onclick/-->
+<!--Used https://siongui.github.io/2012/10/08/javascript-play-sound-onclick/ and https://www.w3schools.com/jsref/met_document_createelement.asp to get the sound playing by clicking on the button-->
+
+<!--creating bee button-->
 <button id="beeButton" type="button"
-  onclick="javascript:PlaySound('Bumble-bee-sound.mp3');">
+  onclick="playBeeBuzzing('Bumble-bee-sound.mp3');">
   Bee
-</button>
+</button> <!--adding an event handler to the button. This is so that when the button is pressed the 'playBeeBuzzing' function is ran-->
 
 
-<script type="text/javascript" src="test.js"></script>
+<script type="text/javascript" src="test.js"></script><!--referencing the external javascript file-->
 
 </body>
 </html>
