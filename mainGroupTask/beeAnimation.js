@@ -17,4 +17,26 @@ function drawingCircle(x,y,r) {
 drawingCircle(215,55,40);
 ctx.fillStyle = "yellow";
 ctx.fill();
+
+
+/*var audio = new Audio("Bumble-bee-sound.mp3");
+audio.oncanplaythrough = function(){
+	audio.play();
+}
+
+audio.loop = false;
+
+audio.onended = function(){
+	audio.play();
+}*/
+
+
+
+document.getElementById("demo").onclick = function() {myFunction()};
+
+function myFunction() {
+    document.getElementById("demo").innerHTML = "Bumble-bee-sound.mp3";
+}
+
+
 }
