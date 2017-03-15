@@ -5,3 +5,4 @@ function countUP () {
 
  document.getElementById("timer_container").innerHTML = counter;
  }
+// code got from http://www.webdeveloper.com/forum/showthread.php?226907-need-a-simple-script-for-count-up-counter
