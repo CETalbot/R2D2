@@ -1,9 +1,9 @@
-var c=0;
-function timer(){
+var c = 0;
 
-setInterval("count()",1000 );
+function timer() {
+    setInterval("count()", 1000);
 }
-function count(){
-document.getElementById('txt').value =c;
-c++;
+
+function count() {
+    document.getElementById('txt').innerHTML = c++;
 }
