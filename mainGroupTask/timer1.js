@@ -1,9 +1,7 @@
-var c = 0; //variable is used. the counting will start from number 0
+var total = 0;
 
 function timer() {
-    setInterval("count()", 1000); // function set interval is used to count the number. it will count till the number 1000
+    total++;
+    document.getElementById('tot').value = total;
 }
-
-function count() {
-    document.getElementById('txt').innerHTML = c++;
-}
+// code refrenced from http://jsfiddle.net/weERF/
