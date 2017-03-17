@@ -4,17 +4,22 @@
 	<meta charset="UTF-8">
 	<title>Document</title>
 	<script type="text/javascript" src="beeAnimation.js"></script>
+	<link rel="stylesheet" href="beeStyling.css">
 </head>
 <body>
 	<canvas id="canvasArea" width="500" height="700" style="border:1px solid #000000"></canvas>
 
-	<button onclick="audio.play()">Bee</button>
+	<!--<button onclick="audio.play()">Bee</button>
 
-	<p id="demo">Bee</p>
+	<p id="demo">Bee</p>-->
 
-	<!--<audio controls>
-		<source src="Bumble-bee-sound.mp3" type="audio/mpeg">
-	</audio>-->
+	<!--Used https://siongui.github.io/2012/10/08/javascript-play-sound-onclick/ and https://www.w3schools.com/jsref/met_document_createelement.asp to get the sound playing by clicking on the button-->
+
+<!--creating bee button-->
+<button id="beeButton" type="button"
+  onclick="playBeeBuzzing('Bumble-bee-sound.mp3');">
+  Bee
+</button> <!--adding an event handler to the button. This is so that when the button is pressed the 'playBeeBuzzing' function is ran-->
 
 </body>
 </html>

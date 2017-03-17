@@ -3,6 +3,7 @@
 <head>
   <meta charset="utf-8">
   <title>Bee</title>
+  <link rel="stylesheet" href="beeStyling.css">
 </head>
 <body>
 
@@ -12,9 +13,11 @@
 
 <!--creating bee button-->
 <button id="beeButton" type="button"
-  onclick="playBeeBuzzing('Bumble-bee-sound.mp3');">
-  Bee
-</button> <!--adding an event handler to the button. This is so that when the button is pressed the 'playBeeBuzzing' function is ran-->
+onclick="playBeeBuzzing('Bumble-bee-sound.mp3');">  Bee</button> 
+<!--adding an event handler to the button. This is so that when the button is pressed the 'playBeeBuzzing' function is ran-->
+
+
+<input type="text" id="total" value="0"></input>
 
 
 <script type="text/javascript" src="test.js"></script><!--referencing the external javascript file-->
