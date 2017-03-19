@@ -8,7 +8,7 @@ function rectangleDraw(x,y,w,h){
 	ctx.rect(x,y,w,h);		
 	ctx.stroke();
 };
-	rectangleDraw(180,230,300,300);
+	rectangleDraw(180,230,300,300);//main body shape
 	//rectangleDraw(200,370,30,40);//left side top of arm
 	//rectangleDraw(530,370,30,40);//right side top of arm
 
