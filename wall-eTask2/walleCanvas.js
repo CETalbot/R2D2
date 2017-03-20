@@ -4,6 +4,13 @@ window.onload = function(){
 var canvas = document.getElementById("canvasSpace");
 var ctx = canvas.getContext("2d");
 
+function drawingCircle(x,y,r) {
+	ctx.beginPath();
+	ctx.arc(x,y,r,0,2*Math.PI);
+	ctx.stroke();
+	ctx.closePath();
+}
+
 function rectangleDraw(x,y,w,h){
 	ctx.rect(x,y,w,h);		
 	ctx.stroke();
@@ -64,8 +71,20 @@ function lineDraw(a,b,c,d){
 	lineDraw(245,414,285,434);//fourth line of left hand
 	lineDraw(285,434,300,401);//closing line of the left side at the front
 
+drawingCircle(440,500,22);
+ctx.fillStyle = "red";
+ctx.fill();
 
+drawingCircle(405,500,4);
+ctx.fillStyle = "black";
+ctx.fill();
+//referenced by https://www.w3schools.com/graphics/canvas_text.asp 
+ctx.font = "40px Calibri";
+ctx.fillStyle = "black";
+ctx.fillText("Wall",323,510);
 
-
+ctx.font = "40px Calibri";
+ctx.fillStyle = "white";
+ctx.fillText("E",425,510);
 
 };
