@@ -43,8 +43,8 @@ function drawLine(a,b,c,d){
 	ctx.lineTo(c,d);
 	ctx.stroke();
 };
-    drawLine(200,520,550,200);
-
+    drawLine(180,530,200,550);//line connecting to left leg from the body
+    drawLine(480,530,460,550);//line connecting to right leg from the body
 
 
 
