@@ -8,8 +8,6 @@ function drawingCurve(cp1x,cp1y,cp2x,cp2y,x,y) {
 ctx.bezierCurveTo(cp1x,cp1y,cp2x,cp2y,x,y);
 ctx.stroke();
 }
-drawingCurve(200,100,165,107,200,120);
-drawingCurve(200,120,230,115,200,100); 
 function drawingCircle(x,y,r) {
 	ctx.beginPath();
 	ctx.arc(x,y,r,0,2*Math.PI);
@@ -43,13 +41,6 @@ function drawLine (c,d){//creating a function called 'drawLine'. As I would like
     
 //drawing bee
 
-ctx.beginPath();
-    ctx.moveTo(200,100);
-    drawLine(200,150);
-    ctx.closePath();
-    ctx.strokeStyle = "black";
-    ctx.stroke();
-
     ctx.beginPath();
     drawingCircle(200,100,30,false);
     ctx.closePath();
@@ -59,12 +50,6 @@ ctx.beginPath();
     ctx.fill();
 
 
-    /*ctx.beginPath();
-    ctx.moveTo(200,100);
-    drawLine(200,150);
-    ctx.closePath();
-    ctx.strokeStyle = "black";
-    ctx.stroke();*/
 
 
 
