@@ -41,6 +41,15 @@ function drawLine (c,d){//creating a function called 'drawLine'. As I would like
     ctx.fillStyle = "brown"; //choosing the colour brown for the fill 
     ctx.fill();//colouring in the paths
     
+//drawing bee
+
+ctx.beginPath();
+    ctx.moveTo(200,100);
+    drawLine(200,150);
+    ctx.closePath();
+    ctx.strokeStyle = "black";
+    ctx.stroke();
+
     ctx.beginPath();
     drawingCircle(200,100,30,false);
     ctx.closePath();
@@ -48,6 +57,14 @@ function drawLine (c,d){//creating a function called 'drawLine'. As I would like
     ctx.stroke();
     ctx.fillStyle = "yellow";
     ctx.fill();
+
+
+    /*ctx.beginPath();
+    ctx.moveTo(200,100);
+    drawLine(200,150);
+    ctx.closePath();
+    ctx.strokeStyle = "black";
+    ctx.stroke();*/
 
 
 
