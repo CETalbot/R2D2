@@ -16,8 +16,43 @@ function rectangleDraw(x,y,w,h){
 	ctx.stroke();
 };
 	rectangleDraw(180,230,300,300);//main body shape
+
 	//rectangleDraw(200,370,30,40);//left side top of arm
 	//rectangleDraw(530,370,30,40);//right side top of arm
+
+//drawing leggs
+function drawRectangle(x,y,w,h){
+	ctx.rect(x,y,w,h);		
+	ctx.stroke();
+};
+	drawRectangle(200,530,110,80);//left leg
+    drawRectangle(210,610,10,10);//first rectangle in left leg
+    drawRectangle(230,610,20,10);//second rectangle in left leg
+    drawRectangle(260,610,20,10);//third rectangle in left leg
+    drawRectangle(290,610,10,10);//fourth rectangle in left leg
+
+    drawRectangle(350,530,110,80);//right leg
+    drawRectangle(360, 610,10,10);//first rectangle in right leg
+    drawRectangle(380, 610,20,10);//second rectangle in right leg
+    drawRectangle(410, 610,20,10);//third rectangle in right leg
+    drawRectangle(440, 610,10,10);//fourth rectangle in right leg
+
+
+function drawLine(a,b,c,d){
+	ctx.moveTo(a,b);
+	ctx.lineTo(c,d);
+	ctx.stroke();
+};
+    drawLine(200,520,550,200);
+
+
+
+
+
+
+
+
+
 
 
 //drawing arms
@@ -88,3 +123,5 @@ ctx.fillStyle = "white";
 ctx.fillText("E",425,510);
 
 };
+
+
