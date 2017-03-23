@@ -45,10 +45,74 @@ function drawLine(a,b,c,d){
 };
     drawLine(180,530,200,550);//line connecting to left leg from the body
     drawLine(480,530,460,550);//line connecting to right leg from the body
+    drawLine(310,560,333,560);//straight line between two legs
+    drawLine(333,560,350,545);//diagonal line between two legs
+    
+    //////////left leg/////////
+    //first horizontal in left leg
+    drawLine(230,545,210,555);//first line in left leg
+    drawLine(230,550,210,560);//second line in left leg
+    drawLine(230,565,210,575);//third line in left leg
+    drawLine(230,570,210,580);//fourth line in left leg 
+    drawLine(230,585,210,595);//fifth line in left leg
+    drawLine(230,590,210,600);//sixth line in left leg
 
+   //second horizontal in left leg
+   drawLine(230,545,250,555);//first line in left leg
+   drawLine(230,550,250,560);//second line in left leg
+   drawLine(230,565,250,575);//third line in left leg
+   drawLine(230,570,250,580);//fourth line in left leg
+   drawLine(230,585,250,595);//fifth line in left leg
+   drawLine(230,590,250,600);//sixth line in left leg
 
+   //third horizontal in left leg
+   drawLine(280,545,260,555);//first line in left leg
+   drawLine(280,550,260,560);//second line in left leg
+   drawLine(280,565,260,575);//third line in left leg
+   drawLine(280,570,260,580);//fourth line in left leg
+   drawLine(280,585,260,595);//fifth line in left leg
+   drawLine(280,590,260,600);//sixth line in left leg
+ 
+   //fourth horizontal in left leg
+   drawLine(280,545,300,555);//first line in left leg
+   drawLine(280,550,300,560);//second line in left leg
+   drawLine(280,565,300,575);//third line in left leg
+   drawLine(280,570,300,580);//fourth line in left leg
+   drawLine(280,585,300,595);//fifth line in left leg
+   drawLine(280,590,300,600);//sixth line in left leg
 
+   //////////right leg////////
+   //first horizontal in right leg
+   drawLine(380,545,360,555);//first line in left leg
+   drawLine(380,550,360,560);//second line in left leg
+   drawLine(380,565,360,575);//third line in left leg
+   drawLine(380,570,360,580);//fourth line in left leg 
+   drawLine(380,585,360,595);//fifth line in left leg
+   drawLine(380,590,360,600);//sixth line in left leg
 
+   //second horizontal in left leg
+   drawLine(380,545,400,555);//first line in left leg
+   drawLine(380,550,400,560);//second line in left leg
+   drawLine(380,565,400,575);//third line in left leg
+   drawLine(380,570,400,580);//fourth line in left leg 
+   drawLine(380,585,400,595);//fifth line in left leg
+   drawLine(380,590,400,600);//sixth line in left leg
+
+   //third horizontal in left leg
+   drawLine(430,545,410,555);//first line in left leg
+   drawLine(430,550,410,560);//second line in left leg
+   drawLine(430,565,410,575);//third line in left leg
+   drawLine(430,570,410,580);//fourth line in left leg
+   drawLine(430,585,410,595);//fifth line in left leg
+   drawLine(430,590,410,600);//sixth line in left leg
+ 
+   //fourth horizontal in left leg
+   drawLine(430,545,450,555);//first line in left leg
+   drawLine(430,550,450,560);//second line in left leg
+   drawLine(430,565,450,575);//third line in left leg
+   drawLine(430,570,450,580);//fourth line in left leg
+   drawLine(430,585,450,595);//fifth line in left leg
+   drawLine(430,590,450,600);//sixth line in left leg
 
 
 
