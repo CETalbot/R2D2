@@ -4,7 +4,14 @@ var canvas = document.getElementById("canvasArea");
 var ctx = canvas.getContext("2d");
 
 
+<<<<<<< HEAD
 
+=======
+function drawingCurve(cp1x,cp1y,cp2x,cp2y,x,y) {
+ctx.bezierCurveTo(cp1x,cp1y,cp2x,cp2y,x,y);
+ctx.stroke();
+}
+>>>>>>> c05be000bcedf8db5daf24a995a87224103352b8
 function drawingCircle(x,y,r) {
     
 	ctx.arc(x,y,r,0,2*Math.PI);
@@ -42,9 +49,12 @@ function drawingRectangle (x,y,w,h){
 
 //drawing bee
 
+<<<<<<< HEAD
 
 
 
+=======
+>>>>>>> c05be000bcedf8db5daf24a995a87224103352b8
     ctx.beginPath();
     ctx.save();
     ctx.scale(2,1);
@@ -58,6 +68,7 @@ function drawingRectangle (x,y,w,h){
     ctx.fill();
 
 
+<<<<<<< HEAD
 
 
     ctx.beginPath();
@@ -78,6 +89,8 @@ function drawingRectangle (x,y,w,h){
     ctx.fill();
 
 
+=======
+>>>>>>> c05be000bcedf8db5daf24a995a87224103352b8
 
 
 
