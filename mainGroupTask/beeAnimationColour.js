@@ -4,54 +4,53 @@ var canvas = document.getElementById("canvasArea");
 var ctx = canvas.getContext("2d");
 
 
-function drawingCurve(cp1x,cp1y,cp2x,cp2y,x,y) {
-ctx.bezierCurveTo(cp1x,cp1y,cp2x,cp2y,x,y);
-ctx.stroke();
-}
-drawingCurve(200,100,165,107,200,120);
-drawingCurve(200,120,230,115,200,100); 
+
 function drawingCircle(x,y,r) {
-	ctx.beginPath();
+    
 	ctx.arc(x,y,r,0,2*Math.PI);
-    ctx.scale(110,40);
 	ctx.stroke();
-	//ctx.closePath();
 }
 
 //drawing the plant pot
-function drawCurve(c,d,e,f,x,y){
+function drawingCurve(c,d,e,f,x,y){
     
     ctx.bezierCurveTo(c,d,e,f,x,y);//the first four numbers are the control points of the bezier curve (the first two numbers are for one control point and the last two numbers of the four are for the second control point). The last two numbers are for the end point of the bezier curve    
     ctx.stroke();//drawing the curves
 };
-	
 
-function drawLine (c,d){//creating a function called 'drawLine'. As I would like to be able to change the co-ordinates for each drawn line I have given the function the parameters of a,b,c and d
+function drawingLine (c,d){//creating a function called 'drawLine'. As I would like to be able to change the co-ordinates for each drawn line I have given the function the parameters of a,b,c and d
     ctx.lineTo(c,d);//ending the drawing of the line by saying what co-ordinates the line will end at
     ctx.stroke();//drawing the line
 };
+
+function drawingRectangle (x,y,w,h){
+    ctx.rect(x,y,w,h);
+    ctx.stroke();
+};
     ctx.beginPath();
     ctx.moveTo(190,550);
-    drawCurve(215,553,200,555,250,550);//bottom curve of the plantpot
-    drawLine(280,460);// right hand side of the plant pot
+    drawingCurve(215,550,200,553,250,550);//bottom curve of the plantpot
+    drawingLine(280,460);// right hand side of the plant pot
     
-    drawCurve(280,460,190,465,170,460);//top curve of the plantpot
-	drawLine(190,550);//left hand side of the plant pot
+    drawingCurve(280,460,190,465,170,460);//top curve of the plantpot
+	drawingLine(190,550);//left hand side of the plant pot
     ctx.closePath();
     ctx.fillStyle = "brown"; //choosing the colour brown for the fill 
     ctx.fill();//colouring in the paths
     
+
+
 //drawing bee
 
-ctx.beginPath();
-    ctx.moveTo(200,100);
-    drawLine(200,150);
-    ctx.closePath();
-    ctx.strokeStyle = "black";
-    ctx.stroke();
+
+
 
     ctx.beginPath();
-    drawingCircle(200,100,30,false);
+    ctx.save();
+    ctx.scale(2,1);
+    drawingCircle(100,150,40);
+    
+    ctx.restore();
     ctx.closePath();
     ctx.strokeStyle = "yellow";
     ctx.stroke();
@@ -59,12 +58,26 @@ ctx.beginPath();
     ctx.fill();
 
 
-    /*ctx.beginPath();
-    ctx.moveTo(200,100);
-    drawLine(200,150);
+
+
+    ctx.beginPath();
+    drawingRectangle(130,130,10,40);
+    drawingRectangle(160,115,10,70);
+    drawingRectangle(190,110,10,80);
+    drawingRectangle(220,110,10,80);
+    ctx.closePath();
+    ctx.fillStyle = "black";
+    ctx.fill();
+
+    ctx.beginPath();
+    drawingCircle(260,143,6);
     ctx.closePath();
     ctx.strokeStyle = "black";
-    ctx.stroke();*/
+    ctx.stroke();
+    ctx.fillStyle = "black";
+    ctx.fill();
+
+
 
 
 
