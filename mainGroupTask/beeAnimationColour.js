@@ -69,10 +69,16 @@ function drawingRectangle (x,y,w,h){
     ctx.stroke();
     ctx.fillStyle = "black";
     ctx.fill();
-
+/*sky background colour gradient code used from 
+https://www.w3schools.com/tags/canvas_createlineargradient.asp on 05/03/2017*/
+    var gradient=ctx.createRadialGradient(170,100,2,200,30,120);
+    gradient.addColorStop(0, "#d9d9d9");
+    gradient.addColorStop(1,"#ffffff");
     ctx.beginPath();
     ctx.moveTo(170,113);
-    drawingCurve(80,80,70,10,195,60);
-    drawingCurve(305,10,305,70,230,110);
+    drawingCurve(100,80,90,10,195,60);
+    drawingCurve(290,10,300,70,230,110);
+    ctx.fillStyle = gradient;
+    ctx.fill();
     ctx.closePath();
 }
