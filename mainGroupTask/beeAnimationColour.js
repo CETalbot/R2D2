@@ -16,11 +16,6 @@ function drawingCurve(c,d,e,f,x,y){
     ctx.stroke();//drawing the curves
 };
 
-
-
-    
-
-
 function drawingLine (c,d){//creating a function called 'drawLine'. As I would like to be able to change the co-ordinates for each drawn line I have given the function the parameters of a,b,c and d
     ctx.lineTo(c,d);//ending the drawing of the line by saying what co-ordinates the line will end at
     ctx.stroke();//drawing the line
@@ -31,18 +26,17 @@ function drawingRectangle (x,y,w,h){
     ctx.stroke();
 };
     ctx.beginPath();
-    ctx.moveTo(190,550);
-    drawingCurve(215,550,200,553,250,550);//bottom curve of the plantpot
-    drawingLine(280,460);// right hand side of the plant pot
+    ctx.moveTo(190,650);
+    drawingCurve(215,653,218,653,250,650);//bottom curve of the plantpot
+    drawingLine(280,560);// right hand side of the plant pot
     
-    drawingCurve(280,460,190,465,170,460);//top curve of the plantpot
-	drawingLine(190,550);//left hand side of the plant pot
+    drawingCurve(280,560,190,565,170,560);//top curve of the plantpot
+	drawingLine(190,650);//left hand side of the plant pot
     ctx.closePath();
     ctx.fillStyle = "brown"; //choosing the colour brown for the fill 
     ctx.fill();//colouring in the paths
     
 
- 
 
 
 //drawing bee
@@ -111,4 +105,63 @@ https://www.w3schools.com/tags/canvas_createlineargradient.asp on 05/03/2017*/
 
     ctx.beginPath();
     drawingCurve(240,160,240,180,270,170);//smiley face
+
+
+
+
+
+
+
+//flower
+    ctx.beginPath();
+    drawingRectangle(220,411,5,150);//stem of the flower
+    ctx.closePath();
+    ctx.fillStyle = "green";
+    ctx.fill();
+
+    ctx.beginPath();//1st
+    drawingCircle(220,320,25);
+    ctx.closePath();
+    ctx.fillStyle = "yellow";
+    ctx.fill();
+
+    ctx.beginPath();//3rd
+    drawingCircle(255,390,25);
+    ctx.closePath();
+    ctx.fillStyle = "yellow";
+    ctx.fill();
+
+    ctx.beginPath();//5th
+    drawCircle(190,390,25);
+    ctx.closePath();
+    ctx.fillStyle = "yellow";
+    ctx.fill();
+
+    ctx.beginPath();//6th
+    drawingCircle(185,350,25);
+    ctx.closePath();
+    ctx.fillStyle = "yellow";
+    ctx.fill();
+
+    ctx.beginPath();//2nd
+    drawingCircle(260,350,25);
+    ctx.closePath();
+    ctx.fillStyle = "yellow";
+    ctx.fill();
+
+    ctx.beginPath();//4th
+    drawingCircle(220,405,25);
+    ctx.closePath();
+    ctx.fillStyle = "yellow";
+    ctx.fill();
+
+    ctx.beginPath();
+    drawingCircle(222,360,30); //inner circle
+    ctx.closePath();
+    ctx.fillStyle = "#904737";
+    ctx.fill();
+
+
+
+
 }
