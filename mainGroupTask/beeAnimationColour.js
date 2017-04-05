@@ -3,6 +3,10 @@ window.onload = function(){
 var canvas = document.getElementById("canvasArea");
 var ctx = canvas.getContext("2d");
 
+
+
+
+
 function drawingCircle(x,y,r) {
     
 	ctx.arc(x,y,r,0,2*Math.PI);
@@ -132,7 +136,7 @@ https://www.w3schools.com/tags/canvas_createlineargradient.asp on 05/03/2017*/
     ctx.fill();
 
     ctx.beginPath();//5th
-    drawCircle(190,390,25);
+    drawingCircle(190,390,25);
     ctx.closePath();
     ctx.fillStyle = "yellow";
     ctx.fill();
