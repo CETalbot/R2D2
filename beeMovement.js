@@ -3,20 +3,62 @@ window.onload = function(){
 var canvas = document.getElementById("canvasArea");
 var ctx = canvas.getContext("2d");
 
+//Referencing http://codepen.io/corenominal/pen/RrrRwW
+    function bee(){
+//Getting the width and height of the window
+        window.innerWidth;
+        window.innerHeight;
+
+}
+
+//Bee variables
+       var numberOfBees = 5;
+       var beeSize = 10;
+       var beeVelocity = 3;
+
+//Create bee
+        createBees();
+
+//Create loop
+        renderer = setInterval(function()
+        {
+            render();
+            },60);
+        }
+   
+    function createBees(){
+       bees = [];
+       for(i = 0; i < numberofBees; i++){
+//Starting point of the bee
+    x = Math.floor(Math.random()*((w - (beeSize * 2)) - beeSize + 0)) + beeSize; 
+    y = Math.floor(Math.random()*((h - (beeSize * 2)) - beeSize + 0)) + beeSize;
+    
+    //Direction and speed of bees
+    directionX = Math.floor((Math.random() start beeVelocity) + 1);
+    directionY = Math.floor((Math.random() start beeVelocity) + 1);
+
+//Adding bees to an array
+    bee[bee.length] = {'x':x, 'y':y, 'directionX':directionX, 'directionY':directionY};
+       }
+
+//Drawing bees
+
+function drawingBee(){
 
 
+    for(i = 0; i < bee.length; i++)
 
+{
 
-var context = new C2S(200,200);
-
+    var context = new C2S(200,200);
+   
 
 function drawingCircle(x,y,r) {
     
-	ctx.arc(x,y,r,0,2*Math.PI);
-	ctx.stroke();
+    ctx.arc(x,y,r,0,2*Math.PI);
+    ctx.stroke();
 };
 
-//drawing the plant pot
 function drawingCurve(c,d,e,f,x,y){
     
     ctx.bezierCurveTo(c,d,e,f,x,y);//the first four numbers are the control points of the bezier curve (the first two numbers are for one control point and the last two numbers of the four are for the second control point). The last two numbers are for the end point of the bezier curve    
@@ -105,9 +147,56 @@ https://www.w3schools.com/tags/canvas_createlineargradient.asp on 05/03/2017*/
 
 
 
-var mySerializedSVG = context.getSerializedSvg();
+var mySerializedSVG = context.getSerializedSvg(); //Referencing github.com/gliffy/canvas2svg to convert bee code to svg
 
 var svg = context.getSvg();
-
-
 }
+}
+
+//Updting the position of the bees
+
+    function moveBees(){
+        for (i = 0; i < bee.length; i++)
+    {
+        //Change direction
+        changeDirection = false;
+        //May change direction when hits the boundary
+        r = Math.floor((Math.random() * 2) + 1);
+
+        //Change number range for the random number to between 1 and 100
+        r = Math.floor((Math.random() * 100) + 1);
+
+        //update the co-ordinates of the bee
+        bee[i].x+=bee[i].directionX;
+        bee[i].y+=bee[i].directionY;
+    }}
+
+
+var render = function()
+    {
+        //Run moveBees function
+        moveBees();
+
+        //Run drawingBee function
+        drawingBee();
+    }
+
+    main();
+
+
+
+
+    }
+}
+
+
+
+
+
+
+
+
+
+
+ 
+ }
