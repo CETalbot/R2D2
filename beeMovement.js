@@ -6,6 +6,10 @@ var ctx = canvas.getContext("2d");
 
 
 
+
+var context = new C2S(200,200);
+
+
 function drawingCircle(x,y,r) {
     
 	ctx.arc(x,y,r,0,2*Math.PI);
@@ -28,17 +32,7 @@ function drawingRectangle (x,y,w,h){
     ctx.rect(x,y,w,h);
     ctx.stroke();
 };
-    ctx.beginPath();
-    ctx.moveTo(190,650);
-    drawingCurve(215,653,218,653,250,650);//bottom curve of the plantpot
-    drawingLine(280,560);// right hand side of the plant pot
-    
-    drawingCurve(280,560,190,565,170,560);//top curve of the plantpot
-	drawingLine(190,650);//left hand side of the plant pot
-    ctx.closePath();
-    ctx.fillStyle = "brown"; //choosing the colour brown for the fill 
-    ctx.fill();//colouring in the paths
-    
+   
 
 
 
@@ -111,60 +105,9 @@ https://www.w3schools.com/tags/canvas_createlineargradient.asp on 05/03/2017*/
 
 
 
+var mySerializedSVG = context.getSerializedSvg();
 
-
-
-
-//flower
-    ctx.beginPath();
-    drawingRectangle(220,411,5,150);//stem of the flower
-    ctx.closePath();
-    ctx.fillStyle = "green";
-    ctx.fill();
-
-    ctx.beginPath();//1st
-    drawingCircle(220,320,25);
-    ctx.closePath();
-    ctx.fillStyle = "yellow";
-    ctx.fill();
-
-    ctx.beginPath();//3rd
-    drawingCircle(255,390,25);
-    ctx.closePath();
-    ctx.fillStyle = "yellow";
-    ctx.fill();
-
-    ctx.beginPath();//5th
-    drawingCircle(190,390,25);
-    ctx.closePath();
-    ctx.fillStyle = "yellow";
-    ctx.fill();
-
-    ctx.beginPath();//6th
-    drawingCircle(185,350,25);
-    ctx.closePath();
-    ctx.fillStyle = "yellow";
-    ctx.fill();
-
-    ctx.beginPath();//2nd
-    drawingCircle(260,350,25);
-    ctx.closePath();
-    ctx.fillStyle = "yellow";
-    ctx.fill();
-
-    ctx.beginPath();//4th
-    drawingCircle(220,405,25);
-    ctx.closePath();
-    ctx.fillStyle = "yellow";
-    ctx.fill();
-
-    ctx.beginPath();
-    drawingCircle(222,360,30); //inner circle
-    ctx.closePath();
-    ctx.fillStyle = "#904737";
-    ctx.fill();
-
-
+var svg = context.getSvg();
 
 
 }
