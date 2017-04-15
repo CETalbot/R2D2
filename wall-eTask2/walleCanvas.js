@@ -16,7 +16,76 @@ function drawRectangle(x,y,w,h){
 	ctx.rect(x,y,w,h);		
 	ctx.stroke();
 };
+  ctx.beginPath();
   drawRectangle(180,230,300,300);//main body shape
+  ctx.closePath();
+  ctx.fillStyle = "#eec107";
+  ctx.fill();
+
+  //left shoulder pad
+  ctx.beginPath();
+  drawRectangle(180,230,70,20);
+  ctx.closePath();
+  ctx.fillStyle = "#181717";
+  ctx.fill();
+
+  //right shoulder pad
+  ctx.beginPath();
+  drawRectangle(410,230,70,20);
+  ctx.closePath();
+  ctx.fillStyle = "#181717";
+  ctx.fill();
+
+  //right silver section under shoulder pad
+  ctx.beginPath();
+  drawRectangle(410,250,70,40);
+  ctx.closePath();
+  ctx.fillStyle = "#cecdc8";
+  ctx.fill();
+
+  //left silver section under shoulder pad
+  ctx.beginPath();
+  drawRectangle(180,250,70,40);
+  ctx.closePath();
+  ctx.fillStyle = "#cecdc8";
+  ctx.fill();
+
+  //right pad at bottom of body
+  ctx.beginPath();
+  drawRectangle(450,460,30,70);
+  ctx.closePath();
+  ctx.fillStyle = "#181717";
+  ctx.fill();
+
+  //left pad at bottom of body
+  ctx.beginPath();
+  drawRectangle(180,460,30,70);
+  ctx.closePath();
+  ctx.fillStyle = "#181717";
+  ctx.fill();
+
+  //outside tag at the top of the body to the left hand side
+  ctx.beginPath();
+  drawRectangle(265,250,60,40);
+  ctx.closePath();
+  ctx.fillStyle = "#cecdc8";
+  ctx.fill();
+
+  //inside tag at the top of the body to the left hand side
+  ctx.beginPath();
+  drawRectangle(270,255,50,30);
+  ctx.closePath();
+  ctx.fillStyle = "#a5a4a0";
+  ctx.fill();
+
+  //grey tag at the top of the body to the right hand side 
+  ctx.beginPath();
+  drawRectangle(335,250,60,40);
+  ctx.closePath();
+  ctx.fillStyle = "#cecdc8";
+  ctx.fill();
+
+
 
 //drawing legs
 	 drawRectangle(200,530,110,80);//left leg
@@ -107,10 +176,6 @@ function drawLine(a,b,c,d){
   drawLine(385,445,420,425);//fourth line of right hand
   drawLine(385,445,365,420);//closing line of the right side at the front
 
-
-
-
-
 //drawing legs
   drawLine(180,530,200,550);//line connecting to left leg from the body
   drawLine(480,530,460,550);//line connecting to right leg from the body
@@ -184,25 +249,45 @@ function drawLine(a,b,c,d){
   drawLine(430,585,450,595);//fifth line in left leg
   drawLine(430,590,450,600);//sixth line in left leg
 
+  //yellow lines on tag at the top of body
+  //First line
+  ctx.beginPath();
+  drawLine(360,265,390,265);
+  ctx.strokeStyle = "yellow";
+  ctx.stroke();
+  ctx.closePath();
+  //second line
+  ctx.beginPath();
+  drawLine(360,275,390,275);
+  ctx.strokeStyle = "yellow";
+  ctx.stroke();
+  ctx.closePath();
 
 
 
 
-drawCircle(440,500,22);
-ctx.fillStyle = "red";
-ctx.fill();
 
-drawCircle(405,500,4);
-ctx.fillStyle = "black";
-ctx.fill();
-//referenced by https://www.w3schools.com/graphics/canvas_text.asp 
-ctx.font = "40px Calibri";
-ctx.fillStyle = "black";
-ctx.fillText("Wall",323,510);
+  //circle part of name tag at the bottom of the body section
+  drawCircle(440,500,22);
+  ctx.fillStyle = "red";
+  ctx.fill();
+  //circle part of the name at the bottom of the body
+  drawCircle(405,500,4);
+  ctx.fillStyle = "black";
+  ctx.fill();
+  // yellow circle on tag at the top of the body
+  drawCircle(345,270,6);
+  ctx.fillStyle = "yellow";
+  ctx.fill();
+  //referenced by https://www.w3schools.com/graphics/canvas_text.asp 
+  //font of name
+  ctx.font = "40px Calibri";
+  ctx.fillStyle = "black";
+  ctx.fillText("Wall",323,510);
 
-ctx.font = "40px Calibri";
-ctx.fillStyle = "white";
-ctx.fillText("E",425,510);
+  ctx.font = "40px Calibri";
+  ctx.fillStyle = "white";
+  ctx.fillText("E",425,510);
 
 };
 
