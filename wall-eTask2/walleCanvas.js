@@ -103,47 +103,80 @@ function drawRectangle(x,y,w,h){
 
 
 function drawLine(a,b,c,d){
-	ctx.moveTo(a,b);//beginning the drawing of the line by saying what co-ordinates the line will start from
-	ctx.lineTo(c,d);//ending the drawing of the line by saying what co-ordinates the line will end at
-	ctx.stroke();//drawing the lines
+  ctx.moveTo(a,b);//beginning the drawing of the line by saying what co-ordinates the line will start from
+  ctx.lineTo(c,d);//ending the drawing of the line by saying what co-ordinates the line will end at
+  ctx.stroke();//drawing the lines
 };
-	
+  
   //drawing arms
   //left arm
-	drawLine(213,373,173,373);//left arm top line connecting hand to arm
-	drawLine(173,373,173,423);//left arm left line connecting hand to arm
-	drawLine(203,400,203,423);//left arm right line connecting hand to arm
-	drawLine(173,373,103,393);//top line left arm
-	drawLine(173,423,103,443);//bottom line left arm
-	drawLine(103,393,103,443);//closing left arm
+  ctx.beginPath();//beginning the path
+  drawLine(213,373,173,373);//left arm top line connecting hand to arm
+  drawLine(173,373,173,423);//left arm left line connecting hand to arm
+  drawLine(203,400,203,423);//left arm right line connecting hand to arm
+  drawLine(173,373,103,393);//top line left arm
+  drawLine(173,423,103,443);//bottom line left arm
+  drawLine(103,393,103,443);//closing left arm
   drawLine(173,423,203,423);//bottom front line
   drawLine(153,430,180,430);//line underneath arm
+  ctx.closePath();//closing the path
+  ctx.strokeStyle = "brown";//choosing the colour of the stroke
+  ctx.stroke();//drawing the lines
+  ctx.fillStyle = "brown";//choosing the colour of the fill
+  ctx.fill();//filling the path
 
 //drawing hands
 //top claw left hand - back
-	drawLine(230,330,200,400);//back line of left hand
-	drawLine(230,363,226,373);//second back line of the left side at the back
-	drawLine(230,330,276,340);//top line of left hand back line
-	drawLine(220,360,265,372);//second line of left hand back line
-	drawLine(276,340,265,372);//closing line of the left side at the back
+  ctx.beginPath();
+  drawLine(230,330,200,400);//back line of left hand
+  drawLine(230,363,226,373);//second back line of the left side at the back
+  drawLine(230,330,276,340);//top line of left hand back line
+  drawLine(220,360,265,372);//second line of left hand back line
+  drawLine(276,340,265,372);//closing line of the left side at the back
+  ctx.closePath();
+  ctx.strokeStyle = "brown";
+  ctx.stroke();//drawing the lines
+  ctx.fillStyle = "brown";
+  ctx.fill();
+
 
 //bottom claw left hand - back
-	drawLine(212,370,259,382);//third line of left hand back line
-	drawLine(245,414,200,400);//fourth line of left hand
-	drawLine(258,383,245,415);//closing line of the left side at the back
+  ctx.beginPath();
+  drawLine(212,370,259,382);//third line of left hand back line
+  drawLine(245,414,200,400);//fourth line of left hand
+  drawLine(258,383,245,415);//closing line of the left side at the back
+  ctx.closePath();
+  ctx.strokeStyle = "brown";
+  ctx.stroke();//drawing the lines
+  ctx.fillStyle = "brown";
+  ctx.fill();
 
 //top claw left hand - front
-	drawLine(276,340,319,360);//top line of left hand back line
-	drawLine(265,372,306,392);//second line of left hand back line
-	drawLine(306,392,319,359);//closing line of the left side at the front
+  ctx.beginPath();
+  drawLine(276,340,319,360);//top line of left hand back line
+  drawLine(265,372,306,392);//second line of left hand back line
+  drawLine(306,392,319,359);//closing line of the left side at the front
+  ctx.closePath();
+  ctx.strokeStyle = "brown";
+  ctx.stroke();//drawing the lines
+  ctx.fillStyle = "brown";
+  ctx.fill();
+
 
 //bottom claw left hand - front
-	drawLine(259,382,299,402);//third line of left hand back line
-	drawLine(245,414,285,434);//fourth line of left hand
-	drawLine(285,434,300,401);//closing line of the left side at the front
+  ctx.beginPath();
+  drawLine(259,382,299,402);//third line of left hand back line
+  drawLine(245,414,285,434);//fourth line of left hand
+  drawLine(285,434,300,401);//closing line of the left side at the front
+  ctx.closePath();
+  ctx.strokeStyle = "brown";
+  ctx.stroke();//drawing the lines
+  ctx.fillStyle = "brown";
+  ctx.fill();
 
 
 //right arm
+  ctx.beginPath();
   drawLine(443,371,488,371);//right arm top line connecting hand to arm
   drawLine(488,370,488,422);//right arm left line connecting hand to arm
   drawLine(461,400,461,424);//right arm right line connecting hand to arm
@@ -152,35 +185,61 @@ function drawLine(a,b,c,d){
   drawLine(563,395,563,445);//closing right arm
   drawLine(492,423,461,423);//bottom front line
   drawLine(480,430,515,430);//line underneath arm
+  ctx.closePath();
+  ctx.strokeStyle = "brown";
+  ctx.stroke();//drawing the lines
+  ctx.fillStyle = "brown";
+  ctx.fill();
+
 
 //drawing hands
 //top claw right hand - back
+  ctx.beginPath();
   drawLine(461,400,420,338);//back line of right hand
   drawLine(428,375,436,385);//second back line of the right side at the back
   drawLine(420,340,370,355);//top line of right hand back line
   drawLine(394,386,442,370);//second line of right hand back line
   drawLine(370,355,395,386);//closing line of the right side at the back
+  ctx.closePath();
+  ctx.strokeStyle = "brown";
+  ctx.stroke();//drawing the lines
+  ctx.fillStyle = "brown";
+  ctx.fill();
 
 //bottom claw right hand - back
+  ctx.beginPath();
   drawLine(400,395,448,378);//third line of right hand back line
   drawLine(460,405,420,425);//fourth line of right hand
   drawLine(420,425,400,395);//closing line of the right side at the back
+  ctx.closePath();
+  ctx.strokeStyle = "brown";
+  ctx.stroke();//drawing the lines
+  ctx.fillStyle = "brown";
+  ctx.fill();
+
 
 //top claw right hand - front
+  ctx.beginPath();
   drawLine(340,382,376,352);//top line of right hand back line
   drawLine(358,410,395,385);//second line of right hand back line
   drawLine(340,382,360,410);//closing line of the right side at the front
+  ctx.closePath();
+  ctx.strokeStyle = "brown";
+  ctx.stroke();//drawing the lines
+  ctx.fillStyle = "brown";
+  ctx.fill();
+
 
 //bottom claw right hand - front
+  ctx.beginPath();
   drawLine(365,420,400,395);//third line of right hand back line
   drawLine(385,445,420,425);//fourth line of right hand
   drawLine(385,445,365,420);//closing line of the right side at the front
-
-//drawing legs
-  drawLine(180,530,200,550);//line connecting to left leg from the body
-  drawLine(480,530,460,550);//line connecting to right leg from the body
-  drawLine(310,560,333,560);//straight line between two legs
-  drawLine(333,560,350,545);//diagonal line between two legs
+  ctx.closePath();
+  ctx.strokeStyle = "brown";
+  ctx.stroke();//drawing the lines
+  ctx.fillStyle = "brown";
+  ctx.fill();
     
     //////////left leg/////////
   
