@@ -44,7 +44,9 @@ ctx.fill();
 
 ctx.beginPath();
 DrawBezierCurve(110,30,110,277, 300, 120, 228, 9); // curve for outer left eye.
-
+ctx.closePath();
+ctx.fillStyle = "#eec107";
+ctx.fill();
 
 ctx.beginPath();
 DrawBezierCurve(100,25,90,267,312,160,232,2); //curve for inner left eye.
