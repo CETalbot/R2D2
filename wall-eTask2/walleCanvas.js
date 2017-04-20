@@ -39,7 +39,7 @@ ctx.fill();
 ctx.beginPath();
 drawLine(110,30,228,8); // inner top line of left line
 ctx.closePath();
-ctx.fillStyle="#000000";
+ctx.fillStyle="#FFFFFF";
 ctx.fill();
 
 ctx.beginPath();
@@ -170,53 +170,27 @@ ctx.closePath();
 
 
 
-
-
-ctx.beginPath();
-drawLine(270,159,320,159); //bottom line
-drawLine(271,160,271,90);
-drawLine(319,160,319,89);
-drawLine(270,89,280,89);
-drawLine(279,89,279,105);
-drawLine(279,105,310,105);
-drawLine(309,89,309,105);
-drawLine(308,89,320,89);
-ctx.closePath();
-
-
-
-ctx.beginPath();
 // Diagnal shape of neck
+ctx.beginPath();
 drawLine(280,85,250,75);
 drawLine(310,85,280,85);
 drawLine(330,75,310,85);
 ctx.closePath();
-ctx.fillStyle="FFFFFF"
+
+
+// left curves connecting neck to eyes
+//DrawBezierCurve(230,130,231,100,270,102,270,132);
+DrawBezierCurve(233,131,251,144,271,111,282,136);
+ctx.fillStyle ="#433a35";
 ctx.fill();
 
-ctx.beginPath();
-// shape in middle of neck 1
-drawLine(286,90,286,105);
-drawLine(303,90,303,105);
-drawLine(304,90,285,90);
-ctx.closePath();
-//ctx.fillStyle="#"
-//ctx.fill();
-
-ctx.beginPath();
-// inner square on neck
-drawLine(304,110,285,110);
-drawLine(305,109,305,145);
-drawLine(285,109,285,145);
-drawLine(305,145,285,145);
-ctx.closePath();
 
 
-ctx.beginPath();
-// left curves connecting neck to eyes
-DrawBezierCurve(239,120,231,150,270,132,270,122);
+
 DrawBezierCurve(232,131,233,149,260,149,270,132);
 ctx.closePath();
+ctx.fillStyle ="#433a35";
+ctx.fill();
 
 
 ctx.beginPath();
@@ -225,51 +199,107 @@ DrawBezierCurve(320,95,312,130,370,118,350,97);
 DrawBezierCurve(320,110,312,130,360,135,365,111);
 ctx.closePath();
 
-
+// neck
 ctx.beginPath();
-// top of mouth
-drawLine(260,153,270,153);// top line left
-drawLine(260,152,260,181); // left line
-drawLine(295,159,295,190); // middle line
-drawLine(259,180,331,180);// bottom line
-drawLine(330,153,318,153); // top right line
-drawLine(330,152,330,181);//right line
-
-ctx.beginPath();
-// middle of mouth
-drawLine(270,180,270,200) // left
-drawLine(320,180,320,200) // right
+drawRectangle(271, 110, 47, 43);
 ctx.closePath();
+ctx.fillStyle = "#592b14";
+ctx.fill();
 
 
+// left rectangle on neck
 ctx.beginPath();
-//bottom of mouth
-DrawBezierCurve(320,195,322,217,269,219,270,198);
-DrawBezierCurve(268,209,273,236,316,231,320,211);
+drawRectangle(271, 90, 13, 20);
 ctx.closePath();
+ctx.fillStyle = "#6a433e";
+ctx.fill();
 
-
+// right rectangle on neck
 ctx.beginPath();
-// Tongue
-DrawBezierCurve(271,183,291,201,301,197,319,183);
+drawRectangle(305, 90, 13, 20);
 ctx.closePath();
+ctx.fillStyle = "#6a433e";
+ctx.fill();
+
+
+
+// inner square on neck
 ctx.beginPath();
-// bottom of neck
-drawLine(258,172,258,208);// left line
-drawLine(248,197,248,230);// bottom line
-drawLine(259,198,248,198);
+drawRectangle(283, 115, 22,32);
+ctx.fillStyle ="#956245";
+ctx.fill();
 
-drawLine(332,172,332,208);// left line
-drawLine(342,198,333,198);
-drawLine(342,197,342,229);
-ctx.closePath();
-
-
+// recktangle at bottom of neck
 ctx.beginPath();
-// curves connecting body to neck
-DrawBezierCurve(258,208,260,211,255,220,273,230);//left
-DrawBezierCurve(332,207,330,210,330,225,315,230);//right
+drawRectangle(258, 155, 74, 25);
 ctx.closePath();
+ctx.fillStyle = "#603008";
+ctx.fill();
+
+
+// outer mouth
+ctx.beginPath();
+drawRectangle(258, 180, 74, 30);
+ctx.closePath();
+ctx.fillStyle = "#603008";
+ctx.fill();
+
+// inner mouth
+ctx.beginPath();
+drawRectangle(265, 180, 60, 25);
+ctx.closePath();
+//ctx.fillStyle = "#000000";
+//ctx.fill()
+
+
+// left rectangle connecting body to neck
+ctx.beginPath();
+drawRectangle(245, 210, 13, 19);
+ctx.closePath();
+ctx.fillStyle = "#D3D3D3";
+ctx.fill();
+
+
+// chin
+ctx.beginPath();
+DrawBezierCurve(270,210,268,240,325,240,305,210);
+ctx.closePath();
+ctx.fillStyle ="#74302d";
+ctx.fill();
+
+
+// right rectangle connecting body to neck
+ctx.beginPath();
+drawRectangle(320, 210, 13, 19);
+ctx.closePath();
+ctx.fillStyle = "#D3D3D3";
+ctx.fill();
+
+
+
+
+
+
+
+
+// left curve connecting body to neck
+ctx.beginPath();
+//DrawBezierCurve(361,134,323, 193, 267, 125, 329, 114);
+
+
+ctx.closePath();
+ctx.fillStyle = "#603008";
+ctx.fill();
+
+
+// right curve connecting body to neck
+ctx.beginPath();
+
+
+ctx.closePath();
+ctx.fillStyle = "#603008";
+ctx.fill();
+
 
 
 
