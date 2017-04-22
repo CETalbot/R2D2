@@ -31,177 +31,219 @@ ctx.stroke();
 
 // Walles Left Eye
 ctx.beginPath();
-drawLine(100,26,232,2); // line position for the top of WaLL.E's left eye)
-ctx.closePath();
-ctx.fillStyle="#000000";
-ctx.fill();
+drawLine(130,26,275,2); // line position for the top of WaLL.E's left eye)
+ctx.closePath();//closing the path
 
 ctx.beginPath();
-drawLine(110,30,228,8); // inner top line of left line
+drawLine(140,30,275,8); // inner top line of left line
 ctx.closePath();
 ctx.fillStyle="#FFFFFF";
 ctx.fill();
 
 ctx.beginPath();
-DrawBezierCurve(110,30,110,277, 300, 120, 228, 9); // curve for outer left eye.
+DrawBezierCurve(130,25,110,297, 330, 120, 275, 1); // curve for outer left eye.
+ctx.closePath();
 
 
 ctx.beginPath();
-DrawBezierCurve(100,25,90,267,312,160,232,2); //curve for inner left eye.
-
+DrawBezierCurve(140,30,130,237,290,160,275,9); //curve for inner left eye.
+ctx.closePath();
 
 
 	// drawing left eye
 	ctx.beginPath();
-	drawCircle(185,75,40,0,2 * Math.PI);
+	drawCircle(205,75,40,0,2 * Math.PI);
 	ctx.closePath();
-	ctx.fillStyle="#00000"
+	ctx.fillStyle="#000000";
 	ctx.fill();
 
 	ctx.beginPath();
-	drawCircle(185,75,30,0,2 * Math.PI);
+	drawCircle(205,75,30,0,2 * Math.PI);
 	ctx.closePath();
 	ctx.fillStyle="#000000";
 	ctx.fill();
 
 ctx.beginPath();
-	drawCircle(185,75,20,0,2 * Math.PI);
+	drawCircle(205,75,20,0,2 * Math.PI);
 	ctx.closePath();
 	ctx.fillStyle="#FFFFFF"
 	ctx.fill();
 
 ctx.beginPath();
-	drawCircle(185,75,5,0,2 * Math.PI);
+	drawCircle(205,75,5,0,2 * Math.PI);
 	ctx.closePath();
 	ctx.fillStyle="#000000";
 	ctx.fill();
 
 
-ctx.beginPath();
 	// bolts on left eye
-	drawCircle(220,25,5,0,2 * Math.PI); // top right bolt
-	ctx.closePath();
-	ctx.fillStyle="#000000"
-	ctx.fill();
-
-
 	ctx.beginPath();
-	drawCircle(125,60,5,0,2 * Math.PI); // left bolt
+	drawCircle(260,25,5,0,2 * Math.PI); // top right bolt
 	ctx.closePath();
 	ctx.fillStyle="#000000"
 	ctx.fill();
 
+ // left bolt
 	ctx.beginPath();
-	drawCircle(180,140,5,0,2 * Math.PI); // bottom bolt
+	drawCircle(155,60,5,0,2 * Math.PI);
 	ctx.closePath();
 	ctx.fillStyle="#000000"
 	ctx.fill();
+
+	// bottom bolt
+	ctx.beginPath();
+	drawCircle(190,140,5,0,2 * Math.PI);
+	ctx.closePath();
+	ctx.fillStyle="#000000"
+	ctx.fill();
+
+
 
 	// right eye
 	ctx.beginPath();
-drawLine(450,10,280,5); // top right outer eye line
-drawLine(450,16,290,13); // point of right eye
+drawLine(470,10,330,5); // top right outer eye line
+drawLine(460,16,350,13); // inner right
 ctx.closePath();
 
-
+// outer right eye curve
 ctx.beginPath();
-	DrawBezierCurve(280,5,430,240,518,124,450,9); // outer right eye curve
+	DrawBezierCurve(330,5,430,240,518,124,470,9);
 	ctx.closePath();
 
 
-ctx.beginPath();
+
+	// inner right eye curve
+ ctx.beginPath();
+ DrawBezierCurve(350,12,431,225,510,124,460,15);
+ ctx.closePath();
+
 	// drawing right eye
-	drawCircle(400,60,40,0,2 * Math.PI);
+	ctx.beginPath();
+	drawCircle(420,60,40,0,2 * Math.PI);
 	ctx.closePath();
 	ctx.fillStyle="#000000"
 	ctx.fill();
 
 
 ctx.beginPath();
-	drawCircle(400,60,30,0,2 * Math.PI);
+	drawCircle(420,60,30,0,2 * Math.PI);
 	ctx.closePath();
 	ctx.fillStyle="#000000"
 	ctx.fill();
 
 
 ctx.beginPath();
-	drawCircle(400,60,20,0,2 * Math.PI);
+	drawCircle(420,60,20,0,2 * Math.PI);
 	ctx.closePath();
 	ctx.fillStyle="#FFFFFF"
 	ctx.fill();
 
 
 ctx.beginPath();
-	drawCircle(400,60,5,0,2 * Math.PI);
+	drawCircle(420,60,5,0,2 * Math.PI);
 	ctx.closePath();
 	ctx.fillStyle="#000000"
 	ctx.fill();
 
-ctx.beginPath();
-DrawBezierCurve(290,12,431,225,510,124,450,15); // inner right eye curve
-ctx.closePath();
+
+
+
 
 
 //Drawing bolts right eye
 	ctx.beginPath();
-	drawCircle(320,25,5,0,2 * Math.PI); // top right bolt
+	drawCircle(370,25,5,0,2 * Math.PI); // top right bolt
 	ctx.closePath();
 	ctx.fillStyle="#000000"
 	ctx.fill();
 
-
-	drawCircle(445,30,5,0,2 * Math.PI); // left bolt
+// left bolt
+	drawCircle(457,30,5,0,2 * Math.PI);
 	ctx.closePath();
 	ctx.fillStyle="#000000"
 	ctx.fill();
 
-	drawCircle(420,120,5,0,2 * Math.PI); // bottom bolt
+// bottom bolt
+	drawCircle(440,120,5,0,2 * Math.PI);
 	ctx.closePath();
 	ctx.fillStyle="#000000"
 	ctx.fill();
+
 
 // Arch between Eyes
 ctx.beginPath();
-	DrawBezierCurve(240,20,240,10,280,5,292,23); // curve between eyes
-	DrawBezierCurve(248,44,260,54,319,51,304,42);
-	DrawBezierCurve(250,56,256,74,311,91,315,57);
-ctx.closePath();
+	DrawBezierCurve(285,20,265,3,344,3,335,20); // curve between eyes
+	ctx.closePath();
+	ctx.fillStyle="#5d4730"
+	ctx.fill();
 
 
 
-
-// Diagnal shape of neck
+// seccond curve
 ctx.beginPath();
-drawLine(280,85,250,75);
-drawLine(310,85,280,85);
-drawLine(330,75,310,85);
+	DrawBezierCurve(287,15,260,30,368,80,337,20);
+	ctx.closePath();
+	ctx.fillStyle="#5d4730"
+	ctx.fill();
+
+
+
+// curve for third part
+ctx.beginPath();
+	DrawBezierCurve(285,25,270,87,381,72,342,37);
 ctx.closePath();
+ctx.fillStyle = "#5d4730";
+ctx.fill();
 
 
-// left curves connecting neck to eyes
-//DrawBezierCurve(230,130,231,100,270,102,270,132);
-DrawBezierCurve(233,131,251,144,271,111,282,136);
+// curve for fourth part
+ctx.beginPath();
+DrawBezierCurve(285,45,260,103,380,77,350,50);
+ctx.closePath();
+ctx.fillStyle = "#7e5946";
+ctx.fill();
+
+
+
+
+
+
+
+// Top left curves connecting neck to eyes
+ctx.beginPath();
+DrawBezierCurve(261,120,251,111,351,121,297,120)
+ctx.closePath();
+ctx.fillStyle ="#433a35";
+ctx.fill();
+
+//Bottom curves connecting neck to eyes
+ctx.beginPath();
+DrawBezierCurve(260,120,253,130,300,130,310,120);
+ctx.closePath();
 ctx.fillStyle ="#433a35";
 ctx.fill();
 
 
 
 
-DrawBezierCurve(232,131,233,149,260,149,270,132);
+// top right  curve connecting neck to eyes
+ctx.beginPath();
+DrawBezierCurve(350,122,335,130,370,106,400,122);
 ctx.closePath();
 ctx.fillStyle ="#433a35";
 ctx.fill();
 
-
+//bottom right curve connecting neck to eyes
 ctx.beginPath();
-// right curves connecting neck to eyes
-DrawBezierCurve(320,95,312,130,370,118,350,97);
-DrawBezierCurve(320,110,312,130,360,135,365,111);
+DrawBezierCurve(350,121,352,130,370,135,400,121);
 ctx.closePath();
+ctx.fillStyle ="#433a35";
+ctx.fill();
+
 
 // neck
 ctx.beginPath();
-drawRectangle(271, 110, 47, 43);
+drawRectangle(301, 110, 47, 43);
 ctx.closePath();
 ctx.fillStyle = "#592b14";
 ctx.fill();
@@ -209,52 +251,71 @@ ctx.fill();
 
 // left rectangle on neck
 ctx.beginPath();
-drawRectangle(271, 90, 13, 20);
+drawRectangle(301, 80, 13, 30);
 ctx.closePath();
 ctx.fillStyle = "#6a433e";
 ctx.fill();
 
 // right rectangle on neck
 ctx.beginPath();
-drawRectangle(305, 90, 13, 20);
+drawRectangle(335, 75, 13, 35);
 ctx.closePath();
 ctx.fillStyle = "#6a433e";
 ctx.fill();
 
-
-
-// inner square on neck
+// middle rectangle
 ctx.beginPath();
-drawRectangle(283, 115, 22,32);
+drawRectangle(318, 88, 12,22);
 ctx.fillStyle ="#956245";
 ctx.fill();
 
-// recktangle at bottom of neck
+
+// inner rectangle on neck
 ctx.beginPath();
-drawRectangle(258, 155, 74, 25);
+drawRectangle(313, 115, 22,32);
+ctx.fillStyle ="#956245";
+ctx.fill();
+
+// rectangle at bottom of neck
+ctx.beginPath();
+drawRectangle(288, 155, 74, 25);
 ctx.closePath();
-ctx.fillStyle = "#603008";
+ctx.fillStyle = "#865338";
 ctx.fill();
 
 
 // outer mouth
 ctx.beginPath();
-drawRectangle(258, 180, 74, 30);
+drawRectangle(288, 180, 74, 35);
 ctx.closePath();
 ctx.fillStyle = "#603008";
 ctx.fill();
 
 // inner mouth
 ctx.beginPath();
-drawRectangle(265, 180, 60, 25);
+drawRectangle(295, 180, 60, 25);
 ctx.closePath();
-//ctx.fillStyle = "#000000";
-//ctx.fill()
+ctx.fillStyle = "#000000";
+ctx.fill()
+
+
+
+//Tounge
+ctx.beginPath();
+DrawBezierCurve(300,180,280,202,360,205,355,180);
+ctx.closePath();
+ctx.fillStyle = "#662a2c";
+ctx.fill();
+
+// line inbetween mouth and Tounge
+ctx.beginPath();
+drawLine(325,155,325,190);
+ctx.closePath();
 
 
 // left rectangle connecting body to neck
 ctx.beginPath();
-drawRectangle(245, 210, 13, 19);
+drawRectangle(274, 210, 13, 19);
 ctx.closePath();
 ctx.fillStyle = "#D3D3D3";
 ctx.fill();
@@ -262,7 +323,7 @@ ctx.fill();
 
 // chin
 ctx.beginPath();
-DrawBezierCurve(270,210,268,240,325,240,305,210);
+DrawBezierCurve(290,210,288,240,335,240,366,210);
 ctx.closePath();
 ctx.fillStyle ="#74302d";
 ctx.fill();
@@ -270,36 +331,22 @@ ctx.fill();
 
 // right rectangle connecting body to neck
 ctx.beginPath();
-drawRectangle(320, 210, 13, 19);
+drawRectangle(363, 210, 13, 19);
 ctx.closePath();
 ctx.fillStyle = "#D3D3D3";
 ctx.fill();
 
-
-
-
-
-
-
-
-// left curve connecting body to neck
+// curves connecting body to neck
 ctx.beginPath();
-//DrawBezierCurve(361,134,323, 193, 267, 125, 329, 114);
-
-
+DrawBezierCurve(315,230,236,227,298,290,287,210);//left
 ctx.closePath();
 ctx.fillStyle = "#603008";
 ctx.fill();
 
-
-// right curve connecting body to neck
-ctx.beginPath();
-
-
+DrawBezierCurve(363,210,364,257,367,230,322,230);//right
 ctx.closePath();
 ctx.fillStyle = "#603008";
 ctx.fill();
-
 
 
 
