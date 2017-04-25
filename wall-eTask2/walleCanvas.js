@@ -205,10 +205,6 @@ ctx.fill();
 
 
 
-
-
-
-
 // Top left curves connecting neck to eyes
 ctx.beginPath();
 DrawBezierCurve(261,120,251,111,351,121,297,120)
@@ -222,7 +218,6 @@ DrawBezierCurve(260,120,253,130,300,130,310,120);
 ctx.closePath();
 ctx.fillStyle ="#433a35";
 ctx.fill();
-
 
 
 
@@ -445,20 +440,27 @@ function drawLine(a,b,c,d){
   //drawing arms
   //left arm
   ctx.beginPath();//beginning the path
-  drawLine(213,373,173,373);//left arm top line connecting hand to arm
-  drawLine(173,373,173,423);//left arm left line connecting hand to arm
-  drawLine(203,400,203,423);//left arm right line connecting hand to arm
   drawLine(173,373,103,393);//top line left arm
-  drawLine(173,423,103,443);//bottom line left arm
   drawLine(103,393,103,443);//closing left arm
+  drawLine(173,423,103,443);//bottom line left arm
+  drawLine(173,373,173,423);//left arm left line connecting hand to arm
+  ctx.closePath();//closing the path
+  ctx.fillStyle = "brown";//choosing the colour of the fill
+  ctx.fill();//filling the path
+  ctx.strokeStyle = "brown";//choosing the colour of the stroke
+  ctx.stroke();//drawing the lines
+
+  ctx.beginPath();
+  drawLine(213,373,173,373);//left arm top line connecting hand to arm
+  drawLine(203,400,203,423);//left arm right line connecting hand to arm
   drawLine(173,423,203,423);//bottom front line
   drawLine(153,430,180,430);//line underneath arm
   ctx.closePath();//closing the path
-  ctx.strokeStyle = "brown";//choosing the colour of the stroke
-  ctx.stroke();//drawing the lines
   ctx.fillStyle = "brown";//choosing the colour of the fill
   ctx.fill();//filling the path
-
+  ctx.strokeStyle = "brown";//choosing the colour of the stroke
+  ctx.stroke();//drawing the lines
+ 
 //drawing hands
 //top claw left hand - back
   ctx.beginPath();
