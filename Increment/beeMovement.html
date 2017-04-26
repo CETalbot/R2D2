@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src="canvas2svg.js"></script>
+	<script type="text/javascript" src="beeMovement.js"></script>
+	<script type="text/javascript" src="test.js"></script>
+	  <link rel="stylesheet" href="beeStyling.css">
+</head>
+<body>
+
+	<canvas id="canvasArea" width="1000" height="700" style="border:1px solid #000000"></canvas>
+
+	<button id="beeButton" onclick="BtnClick();">Bee</button>
+	<input type ="text" id="inc" value="0">
+	
+
+
+	<div">
+
+    <button onclick="draw_bee();return true;">Draw Bee</button>
+</div>
+</div>
+<script>
+
+  var canvas = document.getElementById("canvasArea");
+  var ctx = canvas.getContext("2d");
+
+  var bee = new Image();
+  bee.src = 'bee.svg';
+
+  function draw_bee() {
+  ctx.drawImage(bee, 100, 5);
+  }
+
+
+
+</script>
+
+
+
+
+</body>
+</html>
