@@ -167,4 +167,10 @@ https://www.w3schools.com/tags/canvas_createlineargradient.asp on 05/03/2017*/
 
 
 
+
+
+
+
+
+
 }
