@@ -4,6 +4,8 @@ window.onload = function(){
 var canvas = document.getElementById("canvasSpace");
 var ctx = canvas.getContext("2d");
 
+
+
 function drawCircle(x,y,r) {
 	ctx.beginPath();
 	ctx.arc(x,y,r,0,2*Math.PI);
@@ -429,37 +431,51 @@ ctx.fill();
    drawRectangle(410,610,20,10);//third rectangle in right leg
    drawRectangle(440,610,10,10);//fourth rectangle in right leg
 
-
-
 function drawLine(a,b,c,d){
   ctx.moveTo(a,b);//beginning the drawing of the line by saying what co-ordinates the line will start from
   ctx.lineTo(c,d);//ending the drawing of the line by saying what co-ordinates the line will end at
   ctx.stroke();//drawing the lines
 };
 
+
+ctx.beginPath();
+//ctx.moveTo();//beginning the drawing of the line by saying what co-ordinates the line will start from
+drawLine(20,347,20,325);
+//bottom spike on tail
+drawLine(35,341,20,325);
+ctx.closePath();
+ctx.fillStyle = "#009f0d";
+ctx.fill();
+ctx.strokeStyle = "black";
+ctx.stroke();
+
   //drawing arms
   //left arm
   ctx.beginPath();//beginning the path
+  //ctx.moveTo();//beginning the drawing of the line by saying what co-ordinates the line will start from
   drawLine(173,373,103,393);//top line left arm
   drawLine(103,393,103,443);//closing left arm
   drawLine(173,423,103,443);//bottom line left arm
   drawLine(173,373,173,423);//left arm left line connecting hand to arm
+  ctx.strokeStyle = "brown";//choosing the colour of the stroke
+  ctx.stroke();//drawing the lines
   ctx.closePath();//closing the path
   ctx.fillStyle = "brown";//choosing the colour of the fill
   ctx.fill();//filling the path
-  ctx.strokeStyle = "brown";//choosing the colour of the stroke
-  ctx.stroke();//drawing the lines
+  
 
   ctx.beginPath();
   drawLine(213,373,173,373);//left arm top line connecting hand to arm
   drawLine(203,400,203,423);//left arm right line connecting hand to arm
   drawLine(173,423,203,423);//bottom front line
   drawLine(153,430,180,430);//line underneath arm
+  ctx.strokeStyle = "brown";//choosing the colour of the stroke
+  ctx.stroke();//drawing the lines
+
   ctx.closePath();//closing the path
   ctx.fillStyle = "brown";//choosing the colour of the fill
   ctx.fill();//filling the path
-  ctx.strokeStyle = "brown";//choosing the colour of the stroke
-  ctx.stroke();//drawing the lines
+  
  
 //drawing hands
 //top claw left hand - back
