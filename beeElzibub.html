@@ -29,7 +29,21 @@ var beeZone = {
         document.body.insertBefore(this.canvas, document.body.childNodes[0]);
         this.frameNo = 0;
         this.interval = setInterval(updateGameArea, 20);
+        
+
+         if (bee.x > this.canvas.width || this.x < 0 ) {
+            bee.speedX = -2;
+            this.update();
+        } else if (this.y > this.canvas.height || this.y < 0) {
+            bee.speedY = -2;
+            this.update(); 
+        }
+
         },
+
+
+   
+
     clear : function() {
         this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
     },
@@ -46,9 +60,11 @@ function component(width, height, color, x, y, type) {
     }
     this.width = width;
     this.height = height;
+    console.log(height);
     this.speedX = 0;
     this.speedY = 0;    
     this.x = x;
+    console.log(this.x);
     this.y = y;    
     this.update = function() {
         ctx = beeZone.context;
@@ -61,7 +77,8 @@ function component(width, height, color, x, y, type) {
             ctx.fillStyle = color;
             ctx.fillRect(this.x, this.y, this.width, this.height);
         }
-    }
+    };
+    console.log(this.speedX);
     this.newPos = function() {
         this.x += this.speedX;
         this.y += this.speedY;        
@@ -93,11 +110,11 @@ function moveleft() {
 }
 
 function moveright() {
-    bee.speedX = 1; 
+    bee.speedX = 5; 
 }
 
 function clearmove() {
-    bee.speedX = 0.5; 
+    bee.speedX = 5; 
     bee.speedY = 0; 
 }
 

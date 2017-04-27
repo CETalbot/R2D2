@@ -9,7 +9,7 @@ var ctx = canvas.getContext("2d");
         window.innerWidth;
         window.innerHeight;
 
-}
+}//closes bee function
 
 //Bee variables
        var numberOfBees = 5;
@@ -24,7 +24,7 @@ var ctx = canvas.getContext("2d");
         {
             render();
             },60);
-        }
+        }//closes renderer function
    
     function createBees(){
        bees = [];
@@ -39,7 +39,7 @@ var ctx = canvas.getContext("2d");
 
 //Adding bees to an array
     bee[bee.length] = {'x':x, 'y':y, 'directionX':directionX, 'directionY':directionY};
-       }
+       }//closes createBees function
 
 //Drawing bees
 
@@ -57,23 +57,23 @@ function drawingCircle(x,y,r) {
     
     ctx.arc(x,y,r,0,2*Math.PI);
     ctx.stroke();
-};
+};//closes drawingCircle function
 
 function drawingCurve(c,d,e,f,x,y){
     
     ctx.bezierCurveTo(c,d,e,f,x,y);//the first four numbers are the control points of the bezier curve (the first two numbers are for one control point and the last two numbers of the four are for the second control point). The last two numbers are for the end point of the bezier curve    
     ctx.stroke();//drawing the curves
-};
+};//closes drawingCurve function
 
 function drawingLine (c,d){//creating a function called 'drawLine'. As I would like to be able to change the co-ordinates for each drawn line I have given the function the parameters of a,b,c and d
     ctx.lineTo(c,d);//ending the drawing of the line by saying what co-ordinates the line will end at
     ctx.stroke();//drawing the line
-};
+};//closes drawingLine function
 
 function drawingRectangle (x,y,w,h){
     ctx.rect(x,y,w,h);
     ctx.stroke();
-};
+};//closes drawingRectangle function
    
 
 
@@ -156,7 +156,7 @@ var svg = context.getSvg();
 //Updting the position of the bees
 
     function moveBees(){
-        for (i = 0; i < bee.length; i++)
+        for (i = 0; i < bee.length; i++);
     {
         //Change direction
         changeDirection = false;
@@ -169,7 +169,7 @@ var svg = context.getSvg();
         //update the co-ordinates of the bee
         bee[i].x+=bee[i].directionX;
         bee[i].y+=bee[i].directionY;
-    }}
+    }}//closes the moveBees function
 
 
 var render = function()
@@ -179,15 +179,15 @@ var render = function()
 
         //Run drawingBee function
         drawingBee();
-    }
+    }//closes the render function
 
     main();
 
 
 
 
-    }
-}
+    }//closes drawingBee function
+}//closes the windows.oonload function
 
 
 
@@ -199,4 +199,4 @@ var render = function()
 
 
  
- }
+ 
