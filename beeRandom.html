@@ -5,11 +5,15 @@
 	<title>Bee Random Movement</title>
 	<style type="text/css">
 		canvas {border:1px solid black;}/*setting the styling for the canvas*/
+		canvas {background: url('hiveTotal.svg');
+		background-size: cover;
+	}
 	</style>
 	<script type="text/javascript">
 		window.onload = function (){//creating a 'window.onload' function so the JavaScript code will be ran once the page has been loaded
 			var canvas = document.getElementById('bee');
 			var ctx = canvas.getContext('2d');
+			canvas.height = canvas.width / 1.4;
 			var x = canvas.width;//
 			var y = canvas.height;//
 			var scene = {//creating a variable for the canvas and giving it properties
@@ -26,12 +30,15 @@
 			 	"src":"bee.svg",
 			 	"centreX": 150,
 			 	"centreY": 200,
-			 	"speedX": 10,
-			 	"speedY": 15,
+			 	"speedX": 4,
+			 	"speedY": 2,
 			 	"maxSpeed": 5,
 			 }
 				var beeImage = new Image();
 				beeImage.src = "bee.svg";
+
+				var beeHive = new Image();
+				beeHive.src = "beeHive.svg";
 
 			function drawCircle(x,y,r){
 				ctx.beginPath();
@@ -78,6 +85,8 @@
 				}
 				bee.centreX += bee.speedX;
 				bee.centreY +=bee.speedY;	
+
+				ctx.drawImage(beeHive,0,0,x,y);
 
 				// NOTE TO SELF - IF THE BEE POS IS OUTSIDE OF BOUNDARY THEN CHANGE SPEED AND MAKE IT GO TO CENTRE - WRAP ANIMATE IF IN AN IF (IF WILL SAY - IF THE BEE POS IS OUTSIDE OF BOUNDARY THEN CHANGE SPEED AND MAKE IT GO TO CENTRE ELSE RANDOM SHIZZ)
 			}

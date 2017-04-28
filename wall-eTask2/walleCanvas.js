@@ -26,7 +26,6 @@ ctx.beginPath(); // Begin path to draw curve.
 ctx.moveTo(a,b); // Starting point (move to of curve)
 ctx.bezierCurveTo(cp1x,cp1y,cp2x ,cp2y,x,y); //cp are the control points of the curve for x and y. Last x and y are the ending points of the curve.
 ctx.stroke();
-;
 };
 
 // Walle.E's Head
