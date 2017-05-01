@@ -16,7 +16,7 @@
 			canvas.height = canvas.width / 1.4;//using this calculation to draw the bee to the correct proportion so it is not squished or stretched
 			var x = canvas.width;//creating a varaible to store the value for the width of the canvas
 			var y = canvas.height;//creating a variable to store the value for the height of the canvas
-			//I used https://www.w3schools.com/js/js_properties.asp to look at the syntax for adding multiple properties to a variable
+			//Used https://www.w3schools.com/js/js_properties.asp to look at the syntax for adding multiple properties to a variable
 			var scene = {//creating a variable for the canvas and giving it properties
 				"boundaryX": {//setting the properties for the boundary - x axis
 					"min": 0,//the minimum value the boundary can be on the y axis is 0
@@ -35,11 +35,14 @@
 			 	"speedY": 2,//setting the speed for the bee on the y axis
 			 	"maxSpeed": 5,//setting the maximum speed that the bee can go
 			 }
-				var beeImage = new Image();//creating a new image caleed 'beeImage'
+				var beeImage = new Image();//creating a new image called 'beeImage'
 				beeImage.src = "bee.svg";//setting the source for 'beeImage'
 
 				var beeHive = new Image();
 				beeHive.src = "beeHive.svg";
+
+			var timer = 900;//setting a value for the timer
+			var globalAlpha = 1;//setting a value for the transparency
 
 			// function drawCircle(x,y,r){
 			// 	ctx.beginPath();
@@ -72,21 +75,49 @@
 				// ctx.rect(scene.boundaryX.min, scene.boundaryY.min, scene.boundaryX.max, scene.boundaryY.max); //using this to draw a rectangle to show the boundaries to see if they are working
 				// ctx.stroke();//drawing the rectangle
 				// drawCircle(bee.centreX,bee.centreY,20);//calling the drawCircle function. The x and y cor-ordinates have been defined
-				ctx.drawImage(beeImage,bee.centreX,bee.centreY, x / 20, y / 20);//drawing the image of the bee and then scaling the size of the bee
+				ctx.save();
+				ctx.globalAlpha = globalAlpha;
+				ctx.drawImage(beeImage,bee.centreX,bee.centreY, x / 25, y / 20);//drawing the image of the bee and then scaling the size of the bee
 				//creating boundaries for the canvas so that the bee cannot go outside of the canvas. Also been created are random boundaries to make the bee movement appear more random (see 'changeBoundaries' function) . When the bee touches the boundaries if will apeear to 'bounce' off
+				ctx.restore();
 				if (bee.centreX < scene.boundaryX.min || bee.centreY < scene.boundaryY.min) {
 					// bee.speedX = -bee.speedX;
 					bee.speedX = 1 +Math.floor(Math.random()*bee.maxSpeed);
 					// bee.speedY = -bee.speedY;
 					bee.speedY = 1 +Math.floor(Math.random()*bee.maxSpeed);
+					beeImage.src = "bee.svg";
 					changeBoundaries();
 				}else if (bee.centreX > scene.boundaryX.max || bee.centreY > scene.boundaryY.max){ //(|| means or)
 					bee.speedX =  -1 - Math.floor(Math.random()*bee.maxSpeed);
 					bee.speedY = -1 - Math.floor(Math.random()*bee.maxSpeed);
+					beeImage.src = "beeLeft.svg";
 					changeBoundaries();
 
 				}
-				//I used https://www.w3schools.com/js/js_operators.asp to look at the different operators to find the one that is needed
+
+
+
+
+				//Used https://www.w3schools.com/tags/tryit.asp?filename=tryhtml5_canvas_globalalpha for transparency on images
+				//if the timer reaches 0 then the timer will be 'reset' and the image will not be transparent
+				timer--;//decreaing the value of the timer
+				if(timer == 0){
+					globalAlpha = 1;
+					timer = 900;
+				}
+
+				//changing the transparency of the bee image after a set amount of time
+				if(timer <= 180){
+					globalAlpha -= 1/180
+				}
+
+
+
+
+
+
+
+				//Used https://www.w3schools.com/js/js_operators.asp to look at the different operators to find the one that is needed
 				bee.centreX += bee.speedX;//same as saying bee.centreX = beecentreX + bee.speedX
 				bee.centreY +=bee.speedY;
 

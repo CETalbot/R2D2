@@ -447,7 +447,14 @@ ctx.fillStyle = "#009f0d";
 ctx.fill();
 ctx.strokeStyle = "black";
 ctx.stroke();
+    
 
+  function drawLine(a,b,c,d){
+  ctx.moveTo(a,b);//beginning the drawing of the line by saying what co-ordinates the line will start from
+  ctx.lineTo(c,d);//ending the drawing of the line by saying what co-ordinates the line will end at
+  ctx.stroke();//drawing the lines
+};
+    
   //drawing arms
   //left arm
   ctx.beginPath();//beginning the path
