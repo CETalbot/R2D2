@@ -13,44 +13,47 @@
 		window.onload = function (){//creating a 'window.onload' function so the JavaScript code will be ran once the page has been loaded
 			var canvas = document.getElementById('bee');
 			var ctx = canvas.getContext('2d');
-			canvas.height = canvas.width / 1.4;
-			var x = canvas.width;//
-			var y = canvas.height;//
+			canvas.height = canvas.width / 1.4;//using this calculation to draw the bee to the correct proportion so it is not squished or stretched
+			var x = canvas.width;//creating a varaible to store the value for the width of the canvas
+			var y = canvas.height;//creating a variable to store the value for the height of the canvas
+			//I used https://www.w3schools.com/js/js_properties.asp to look at the syntax for adding multiple properties to a variable
 			var scene = {//creating a variable for the canvas and giving it properties
-				"boundaryX": {//setting the properties for the x axis
+				"boundaryX": {//setting the properties for the boundary - x axis
 					"min": 0,//the minimum value the boundary can be on the y axis is 0
 					"max": x,//the maximum value the boundary can be on the x axis is the value of width of the canvas
 				},
-				"boundaryY":{//setting the properties for the y axis
+				"boundaryY":{//setting the properties for the boundary - y axis
 					"min": 0,//the minimum value the boundary can be on the y axis is 0
 					"max": y,//the maximum value the boundary can be on the y axis is the value of the height of the canvas
 				}
 			}
 			var bee = {//creating a variable fot the bee and giving it properties
-			 	"src":"bee.svg",
-			 	"centreX": 150,
-			 	"centreY": 200,
-			 	"speedX": 4,
-			 	"speedY": 2,
-			 	"maxSpeed": 5,
+			 	"src":"bee.svg",//setting the source for the bee image
+			 	"centreX": 150,//setting the value of the bee
+			 	"centreY": 200,//setting the value of the bee
+			 	"speedX": 4,//setting the speed for the bee on the x axis
+			 	"speedY": 2,//setting the speed for the bee on the y axis
+			 	"maxSpeed": 5,//setting the maximum speed that the bee can go
 			 }
-				var beeImage = new Image();
-				beeImage.src = "bee.svg";
+				var beeImage = new Image();//creating a new image caleed 'beeImage'
+				beeImage.src = "bee.svg";//setting the source for 'beeImage'
 
 				var beeHive = new Image();
 				beeHive.src = "beeHive.svg";
 
-			function drawCircle(x,y,r){
-				ctx.beginPath();
-				ctx.arc(x,y,r,0,2*Math.PI);
-				ctx.fill();//filling the circle
-			}
+			// function drawCircle(x,y,r){
+			// 	ctx.beginPath();
+			// 	ctx.arc(x,y,r,0,2*Math.PI);
+			// 	ctx.fill();//filling the circle
+			// }
 
+			//creating random boundaries that keep changing that appear within the canvas (there has been a boundary created below that appears on the edges of the canvas) When the bee touches the boundaries if will apeear to 'bounce' off and a new randomly created set of boundaries is created and so on
+			//boundaies referenced from the code examples found on blackboard html5canvas, ch5, CH5EX4.html
 			function changeBoundaries() {
 				if (bee.centreX - scene.boundaryX.min >= scene.boundaryX.max - bee.centreX) {
-					scene.boundaryX.min = Math.floor(Math.random() * (x / 2));
+					scene.boundaryX.min = Math.floor(Math.random() * (x / 2));//using Math.random to create a random number for the x axis
 				} else {
-					scene.boundaryX.max = (x / 2) + Math.floor(Math.random() * (x / 2));
+					scene.boundaryX.max = (x / 2) + Math.floor(Math.random() * (x / 2));//using Math.random to create a random number for the y axis
 
 				}
 
@@ -69,8 +72,8 @@
 				// ctx.rect(scene.boundaryX.min, scene.boundaryY.min, scene.boundaryX.max, scene.boundaryY.max); //using this to draw a rectangle to show the boundaries to see if they are working
 				// ctx.stroke();//drawing the rectangle
 				// drawCircle(bee.centreX,bee.centreY,20);//calling the drawCircle function. The x and y cor-ordinates have been defined
-				ctx.drawImage(beeImage,bee.centreX,bee.centreY, x / 20, y / 20);
-
+				ctx.drawImage(beeImage,bee.centreX,bee.centreY, x / 20, y / 20);//drawing the image of the bee and then scaling the size of the bee
+				//creating boundaries for the canvas so that the bee cannot go outside of the canvas. Also been created are random boundaries to make the bee movement appear more random (see 'changeBoundaries' function) . When the bee touches the boundaries if will apeear to 'bounce' off
 				if (bee.centreX < scene.boundaryX.min || bee.centreY < scene.boundaryY.min) {
 					// bee.speedX = -bee.speedX;
 					bee.speedX = 1 +Math.floor(Math.random()*bee.maxSpeed);
@@ -83,10 +86,11 @@
 					changeBoundaries();
 
 				}
-				bee.centreX += bee.speedX;
+				//I used https://www.w3schools.com/js/js_operators.asp to look at the different operators to find the one that is needed
+				bee.centreX += bee.speedX;//same as saying bee.centreX = beecentreX + bee.speedX
 				bee.centreY +=bee.speedY;
 
-				ctx.drawImage(beeHive,0,0,x,y);
+				ctx.drawImage(beeHive,0,0,x,y);//drawing the image of the hive
 
 				// NOTE TO SELF - IF THE BEE POS IS OUTSIDE OF BOUNDARY THEN CHANGE SPEED AND MAKE IT GO TO CENTRE - WRAP ANIMATE IF IN AN IF (IF WILL SAY - IF THE BEE POS IS OUTSIDE OF BOUNDARY THEN CHANGE SPEED AND MAKE IT GO TO CENTRE ELSE RANDOM SHIZZ)
 			}
