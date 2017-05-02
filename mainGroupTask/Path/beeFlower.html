@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Bee Path To A Flower</title>
+	<style type="text/css">
+		canvas {border:1px solid black;}/*setting the styling for the canvas*/
+		canvas {background: url('flowerSession.svg');
+		background-size: cover;}
+	</style>
+	<script type="text/javascript">
+		window.onload = function (){//creating a 'window.onload' function so the JavaScript code will be ran once the page has been loaded
+		//referenced from the code examples found on blackboard html5canvas, ch5, CH5EX11.html
+			var canvas = document.getElementById('bee');
+			var ctx = canvas.getContext('2d');
+			//this code works out the proportion of the bee compared to the canvas
+			canvas.height = canvas.width / 1.4;
+			//working out width and height of canvas size
+			var x = canvas.width;
+			var y = canvas.height;
+			//creating the hive and bee images inside the canvas
+			var beeImage = new Image();
+			beeImage.src = "bee.svg"
+			var beeHive = new Image();
+			beeHive.src = "beeHive.svg";
+
+			//creating function animation for bee to flow a path
+			function bee(){
+
+			//clears whole of canvas
+			ctx.clearRect(0,0,x,y);
+			//drawing the hive image within the canvas
+			ctx.drawImage(beeHive, 0, 0, x, y);
+
+			//position of bee travelling along the path given
+			var travelPosition = ball.travelPosition;
+
+			//start point of the curve path x value
+			var curveX = 3 * (point1.x - point0.x);
+			//the x value of the bezier curve on the second curve
+			var bezierX = 3 * (point2.x - point1.x) - curveX;
+			//the start position of the path for the bee to follow x value
+			var startPositionX = point3.x - point0.x - curveX - bezierX;
+
+			//start point of the curve path y value
+			var curveY = 3 * (point1.y - point0.y);
+			//the y value of the bezier curve on the second curve
+			var bezierY = 3 * (point2.y - point1.y) - curveY;
+			//the start position of the path for the bee to follow y value
+			var startPositionY = point3.y - point0.y - curveY - bezierY;
+
+			//this is x value of travel along the path
+			var xtravel = startPositionX*(travelPosition*travelPosition*travelPosition) + bezierX*(travelPosition*travelPosition) + curveX*travelPosition + point0.x;
+			//this is y value of travel along the path
+			var ytravel = startPositionY*(travelPosition*travelPosition*travelPosition) + bezierY*(travelPosition*travelPosition) + curveY*travelPosition + point0.y;
+
+			//the speed the bee will travel along the path
+			ball.travelPosition += ball.speed;
+
+			//the if statement adjusts the speed to stop at the end point
+			if (ball.travelPosition > 1){
+				ball.travelPosition = 1;
+			}
+
+			//draws the bee image inside the canvas
+			ctx.drawImage(beeImage, xtravel, ytravel, x / 25, y / 20);
+
+		}
+
+			//points of the path which the bee starts at and ends at to complete the path
+			var point0 = {x:400, y:200};
+			var point1 = {x:70, y:200};
+			var point2 = {x:125, y:295};
+			var point3 = {x:30, y:270};
+			var ball = {x:0, y:0, speed:0.01, travelPosition:0};
+
+			//this shows the animation but setting how many times the function is called
+			setInterval(bee,33);
+
+
+		}
+
+	</script>
+</head>
+<body>
+	<canvas id="bee" width="800" height="600"></canvas><!--Creating a canvas element and giving it a width and a height-->
+	<p><button onclick="Session1()" type="button">Session 1</button></p>
+	<p><button onclick="Session2()" type="button">Session 2</button></p>
+	<p><button onclick="Session3()" type="button">Session 3</button></p>
+	<p><button onclick="Session4()" type="button">Session 4</button></p>
+	<p><button onclick="reset()" type="button">reset</button></p>
+
+	<p>Session 1</p>
+	<div id="result1"></div>
+
+	<p>Session 2</p>
+	<div id="result2"></div>
+
+	<p>Session 3</p>
+	<div id="result3"></div>
+
+	<p>Session 4</p>
+	<div id="result4"></div>
+
+	<p>Button press for conference sessions.</p>
+
+	<script src="localStorage.js"></script>
+
+</body>
+</html>
