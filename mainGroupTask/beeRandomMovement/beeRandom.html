@@ -35,14 +35,17 @@
 			 	"speedY": 2,//setting the speed for the bee on the y axis
 			 	"maxSpeed": 5,//setting the maximum speed that the bee can go
 			 }
-				var beeImage = new Image();//creating a new image called 'beeImage'
-				beeImage.src = "bee.svg";//setting the source for 'beeImage'
-
-				var beeHive = new Image();
-				beeHive.src = "beeHive.svg";
+			
+			var beeImage = new Image();//creating a new image called 'beeImage'
+			beeImage.src = "bee.svg";//setting the source for 'beeImage'
+				
+			var beeHive = new Image();
+			beeHive.src = "beeHive.svg";
 
 			var timer = 900;//setting a value for the timer
 			var globalAlpha = 1;//setting a value for the transparency
+
+			
 
 			// function drawCircle(x,y,r){
 			// 	ctx.beginPath();
@@ -75,11 +78,11 @@
 				// ctx.rect(scene.boundaryX.min, scene.boundaryY.min, scene.boundaryX.max, scene.boundaryY.max); //using this to draw a rectangle to show the boundaries to see if they are working
 				// ctx.stroke();//drawing the rectangle
 				// drawCircle(bee.centreX,bee.centreY,20);//calling the drawCircle function. The x and y cor-ordinates have been defined
-				ctx.save();
+				ctx.save();//saving the state of the canvas
 				ctx.globalAlpha = globalAlpha;
 				ctx.drawImage(beeImage,bee.centreX,bee.centreY, x / 25, y / 20);//drawing the image of the bee and then scaling the size of the bee
-				//creating boundaries for the canvas so that the bee cannot go outside of the canvas. Also been created are random boundaries to make the bee movement appear more random (see 'changeBoundaries' function) . When the bee touches the boundaries if will apeear to 'bounce' off
-				ctx.restore();
+				//creating boundaries for the canvas so that the bee cannot go outside of the canvas. Also been created are random boundaries to make the bee movement appear more random (see 'changeBoundaries' function). When the bee touches the boundaries if will apeear to 'bounce' off
+				ctx.restore();//restoring the state of the anvas to the previous state
 				if (bee.centreX < scene.boundaryX.min || bee.centreY < scene.boundaryY.min) {
 					// bee.speedX = -bee.speedX;
 					bee.speedX = 1 +Math.floor(Math.random()*bee.maxSpeed);
@@ -112,6 +115,13 @@
 				}
 
 
+
+				// bees = { bee1: {bee}}
+				// for(i = 1; i<=bee.length; i++){
+				// 	bees[bee+i] //need to then update bee
+				// }
+
+				// function addBee(){bee[bee+](bees.length+1)} = //template?
 
 
 
