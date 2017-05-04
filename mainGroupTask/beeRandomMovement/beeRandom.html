@@ -3,6 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Bee Random Movement</title>
+	 <link rel="stylesheet" href="beeStyling.css">
 	<style type="text/css">
 		canvas {border:1px solid black;}/*setting the styling for the canvas*/
 		canvas {background: url('hiveTotal.svg');
@@ -35,17 +36,17 @@
 			 	"speedY": 2,//setting the speed for the bee on the y axis
 			 	"maxSpeed": 5,//setting the maximum speed that the bee can go
 			 }
-			
+
 			var beeImage = new Image();//creating a new image called 'beeImage'
 			beeImage.src = "bee.svg";//setting the source for 'beeImage'
-				
+
 			var beeHive = new Image();
 			beeHive.src = "beeHive.svg";
 
 			var timer = 900;//setting a value for the timer
 			var globalAlpha = 1;//setting a value for the transparency
 
-			
+
 
 			// function drawCircle(x,y,r){
 			// 	ctx.beginPath();
@@ -138,93 +139,27 @@
 			setInterval(animate, 1000/60);//setInterval is a method that is used to call a function and runs the function after a certain amount of time. In this instance the animate function is being called every so many miliseconds. This animates the bee
 		}
 </script>
-<script> // code for local Storage
 
-function Session1() { // fuction for session 1
-    if(typeof(Storage) !== "undefined") { // if local storage is supported then run the code below
-        if (localStorage.clickcount1) { // if the local storage click count
-            localStorage.clickcount1 = Number(localStorage.clickcount1)+1; // if the session 1 button is clicked then click count will save the number to local storage. If the session 1 button is clicked it will add one to the current value stored.
-        } else { // if session 2 button hasnt been pressed
-            localStorage.clickcount1 = 1; // then show the current total thats stored in the local storage
-        }
-        document.getElementById("result1").innerHTML = + localStorage.clickcount1 // get the id result1 and display the value thats stored click count of session 1 button
-    } else { // if the value cannot be shown
-        document.getElementById("result1").innerHTML = "Sorry, your browser does not support web storage..."; // show the text Sorry, your browser does not support web storage.
-    }
-}
-
-
-function Session2() { // fuction for session 2
-    if(typeof(Storage) !== "undefined") {// if local storage is supported then run the code below
-        if (localStorage.clickcount2) { // if the local storage click count
-            localStorage.clickcount2 = Number(localStorage.clickcount2)+1; // if the session 2 button is clicked then click count will save the number to local storage. If the session 2 button is clicked it will add one to the current value stored.
-        } else { // if session 2 button hasnt been pressed
-            localStorage.clickcount2 = 1;  // then show the current total thats stored in the local storage
-        }
-        document.getElementById("result2").innerHTML = + localStorage.clickcount2 // get the id result2 and display the value thats stored click count of session 2 button
-    } else {  // if the value cannot be shown
-        document.getElementById("result2").innerHTML = "Sorry, your browser does not support web storage..."; // show the text Sorry, your browser does not support web storage.
-    }
-}
-
-
-function Session3() { // fuction for session 3
-    if(typeof(Storage) !== "undefined") { // if local storage is supported then run the code below
-        if (localStorage.clickcount3) { // if the local storage click count
-            localStorage.clickcount3 = Number(localStorage.clickcount3)+1;// if the session 3 button is clicked then click count will save the number to local storage. If the session 3 button is clicked it will add one to the current value stored.
-        } else { // if session 3 button hasnt been pressed
-            localStorage.clickcount3 = 1; // then show the current total thats stored in the local storage
-        }
-        document.getElementById("result3").innerHTML = + localStorage.clickcount3 // get the id result3 and display the value thats stored click count of session 3 button
-    } else { // if the value cannot be shown
-        document.getElementById("result3").innerHTML = "Sorry, your browser does not support web storage..."; // show the text Sorry, your browser does not support web storage.
-    }
-    }
-
-
-
-function Session4() { // fuction for session 3
-    if(typeof(Storage) !== "undefined") { // if local storage is supported then run the code below
-        if (localStorage.clickcount4) { // if the local storage click count
-            localStorage.clickcount4 = Number(localStorage.clickcount4)+1;// if the session 4 button is clicked then click count will save the number to local storage. If the session 4 button is clicked it will add one to the current value stored.
-        } else { // if session 3 button hasnt been pressed
-            localStorage.clickcount4 = 1; // then show the current total thats stored in the local storage
-        }
-        document.getElementById("result4").innerHTML = + localStorage.clickcount4 // get the id result4 and display the value thats stored click count of session 4 button
-    } else { // if the value cannot be shown
-        document.getElementById("result4").innerHTML = "Sorry, your browser does not support web storage..."; // show the text Sorry, your browser does not support web storage.
-    }
-}
-
-function reset() { // create function called reset
-  localStorage.clear(); // when reset button is clicked clear any of the values stored in the local storage
-}
-// code refrenced from https://www.w3schools.com/html/tryit.asp?filename=tryhtml5_webstorage_local_clickcount
-</script>
 </head>
 <body>
 	<canvas id="bee" width="800" height="600"></canvas><!--Creating a canvas element and giving it a width and a height-->
 
-	<p><button onclick="Session1()" type="button">Session 1</button></p>
-	<p>Session 1</p>
-	<div id="result1"></div>
+<button id="beeButton" onclick="BtnClick();">Bee</button>
+<input type ="text" id="inc" value="0">
 
-	<p><button onclick="Session2()" type="button">Session 2</button></p>
-	<p>Session 2</p>
-	<div id="result2"></div>
+<script>
+var total = 0;
 
-	<p><button onclick="Session3()" type="button">Session 3</button></p>
-	<p>Session 3</p>
-	<div id="result3"></div>
+// increment
 
-	<p><button onclick="Session4()" type="button">Session 4</button></p>
 
-	<p>Session 4</p>
-	<div id="result4"></div>
+function BtnClick() {
+    total++;
+    document.getElementById('inc').value = total;
 
-	<p><button onclick="reset()" type="button">reset</button></p>
+}
+</script>
 
-	<p>Button press for conference sessions.</p>
 
 
 
