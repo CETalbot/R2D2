@@ -39,14 +39,29 @@
 
 			//create an array to hold multiple bees
 			//bees.bee1.speedx
-			var bee = {//creating a variable fot the bee and giving it properties
+			var bees = [//creating a variable for the bee and giving it properties
+			{	"id":"bee1",
 			 	"src":"bee.svg",//setting the source for the bee image
 			 	"centreX": 150,//setting the value of the bee
 			 	"centreY": 200,//setting the value of the bee
 			 	"speedX": 4,//setting the speed for the bee on the x axis
 			 	"speedY": 2,//setting the speed for the bee on the y axis
 			 	"maxSpeed": 5,//setting the maximum speed that the bee can go
-			 }
+			 },
+			 {	"id":"bee2",
+			 	"src":"bee.svg",//setting the source for the bee image
+			 	"centreX": 150,//setting the value of the bee
+			 	"centreY": 200,//setting the value of the bee
+			 	"speedX": 4,//setting the speed for the bee on the x axis
+			 	"speedY": 2,//setting the speed for the bee on the y axis
+			 	"maxSpeed": 5,//setting the maximum speed that the bee can go
+			 },
+
+
+
+
+
+			 ];
 
 			 //need something to push values of a bee to a new bee
 
@@ -68,14 +83,6 @@
 
 			var timer = 900;//setting a value for the timer
 			var globalAlpha = 1;//setting a value for the transparency
-
-
-
-			// function drawCircle(x,y,r){
-			// 	ctx.beginPath();
-			// 	ctx.arc(x,y,r,0,2*Math.PI);
-			// 	ctx.fill();//filling the circle
-			// }
 
 			//creating random boundaries that keep changing that appear within the canvas (there has been a boundary created below that appears on the edges of the canvas) When the bee touches the boundaries if will apeear to 'bounce' off and a new randomly created set of boundaries is created and so on
 			//boundaies referenced from the code examples found on blackboard html5canvas, ch5, CH5EX4.html
@@ -115,10 +122,17 @@
 
 
 				//create a for loop to loop through the bees
+				 for (i = 0; i<= bees.length ; i++){
+			 	bees['bee' + 1]push bees[i];
+			 }
 
+			 function addBee(){
+			 	bees['bee'+ (bees.length + 1)]
+			 		= template
+			 }
 				//for (#bees)
 				//draw image bees bee# beeAttribute
-				ctx.drawImage(beeImage,bee.centreX,bee.centreY, x / 25, y / 20);//drawing the image of the bee and then scaling the size of the bee
+				ctx.drawImage(bees.beeImage,bees.centreX,bees.centreY, x / 25, y / 20);//drawing the image of the bee and then scaling the size of the bee
 				//creating boundaries for the canvas so that the bee cannot go outside of the canvas. Also been created are random boundaries to make the bee movement appear more random (see 'changeBoundaries' function). When the bee touches the boundaries if will apeear to 'bounce' off
 				
 
