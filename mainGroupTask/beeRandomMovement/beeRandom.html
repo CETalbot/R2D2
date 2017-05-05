@@ -28,6 +28,17 @@
 					"max": y,//the maximum value the boundary can be on the y axis is the value of the height of the canvas
 				}
 			}
+
+
+
+
+
+
+
+
+
+			//create an array to hold multiple bees
+			//bees.bee1.speedx
 			var bee = {//creating a variable fot the bee and giving it properties
 			 	"src":"bee.svg",//setting the source for the bee image
 			 	"centreX": 150,//setting the value of the bee
@@ -36,6 +47,18 @@
 			 	"speedY": 2,//setting the speed for the bee on the y axis
 			 	"maxSpeed": 5,//setting the maximum speed that the bee can go
 			 }
+
+			 //need something to push values of a bee to a new bee
+
+
+
+
+
+
+
+
+
+
 
 			var beeImage = new Image();//creating a new image called 'beeImage'
 			beeImage.src = "bee.svg";//setting the source for 'beeImage'
@@ -81,8 +104,37 @@
 				// drawCircle(bee.centreX,bee.centreY,20);//calling the drawCircle function. The x and y cor-ordinates have been defined
 				ctx.save();//saving the state of the canvas
 				ctx.globalAlpha = globalAlpha;
+
+
+
+
+
+
+
+
+
+
+				//create a for loop to loop through the bees
+
+				//for (#bees)
+				//draw image bees bee# beeAttribute
 				ctx.drawImage(beeImage,bee.centreX,bee.centreY, x / 25, y / 20);//drawing the image of the bee and then scaling the size of the bee
 				//creating boundaries for the canvas so that the bee cannot go outside of the canvas. Also been created are random boundaries to make the bee movement appear more random (see 'changeBoundaries' function). When the bee touches the boundaries if will apeear to 'bounce' off
+				
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 				ctx.restore();//restoring the state of the anvas to the previous state
 				if (bee.centreX < scene.boundaryX.min || bee.centreY < scene.boundaryY.min) {
 					// bee.speedX = -bee.speedX;
@@ -138,6 +190,19 @@
 			}
 			setInterval(animate, 1000/60);//setInterval is a method that is used to call a function and runs the function after a certain amount of time. In this instance the animate function is being called every so many miliseconds. This animates the bee
 		}
+
+
+
+		var total = 0;
+
+// increment
+
+
+function BtnClick() {
+    total++;
+    document.getElementById('inc').value = total;
+
+};
 </script>
 
 </head>
@@ -147,18 +212,7 @@
 <button id="beeButton" onclick="BtnClick();">Bee</button>
 <input type ="text" id="inc" value="0">
 
-<script>
-var total = 0;
 
-// increment
-
-
-function BtnClick() {
-    total++;
-    document.getElementById('inc').value = total;
-
-}
-</script>
 
 
 
