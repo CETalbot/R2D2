@@ -11,15 +11,39 @@
 	}
 	</style>
 	<script type="text/javascript">
-		window.onclick = function (){//creating a 'window.onload' function so the JavaScript code will be ran once the page has been loaded
+
+		var beesTotal = 0;
+		var bees = {"total":0,};
+
+	
+
+
+		window.onload = function (){//creating a 'window.onload' function so the JavaScript code will be ran once the page has been loaded
+
+			
+
 			var canvas = document.getElementById('bee');
 			var ctx = canvas.getContext('2d');
 			canvas.height = canvas.width / 1.4;//using this calculation to draw the bee to the correct proportion so it is not squished or stretched
 			var x = canvas.width;//creating a varaible to store the value for the width of the canvas
 			var y = canvas.height;//creating a variable to store the value for the height of the canvas
 			//Used https://www.w3schools.com/js/js_properties.asp to look at the syntax for adding multiple properties to a variable
-			var scene = {//creating a variable for the canvas and giving it properties
-				"boundaryX": {//setting the properties for the boundary - x axis
+
+
+
+
+			function newBeeFunction(){
+				bees.total++;
+				bees["bee"+(bees.total)] = {//creating a variable for the bee and giving it properties
+			 		"src":"bee.svg",//setting the source for the bee image
+			 		"centreX": 150,//setting the value of the bee
+			 		"centreY": 200,//setting the value of the bee
+			 		"speedX": 4,//setting the speed for the bee on the x axis
+			 		"speedY": 2,//setting the speed for the bee on the y axis
+			 		"maxSpeed": 5,//setting the maximum speed that the bee can go
+			 		"transparency":1,
+			 		"timer":900,
+			 		"boundaryX": {//setting the properties for the boundary - x axis
 					"min": 0,//the minimum value the boundary can be on the y axis is 0
 					"max": x,//the maximum value the boundary can be on the x axis is the value of width of the canvas
 				},
@@ -27,109 +51,135 @@
 					"min": 0,//the minimum value the boundary can be on the y axis is 0
 					"max": y,//the maximum value the boundary can be on the y axis is the value of the height of the canvas
 				}
-			}
+			 	}
+			
 
-			var bee = {//creating a variable fot the bee and giving it properties
-			 	"src":"bee.svg",//setting the source for the bee image
-			 	"centreX": 150,//setting the value of the bee
-			 	"centreY": 200,//setting the value of the bee
-			 	"speedX": 4,//setting the speed for the bee on the x axis
-			 	"speedY": 2,//setting the speed for the bee on the y axis
-			 	"maxSpeed": 5,//setting the maximum speed that the bee can go
-			 }
+	
+				console.log(bees);
+			
+
+			};
+
+
+
+
+
+
+
+		
 			var beeImage = new Image();//creating a new image called 'beeImage'
+			// beeImage.addEventListener("load", function () {
+			// 	ctx.drawImage(beeImage,20,50, x / 25, y / 20);
+
+			// }, false);
 			beeImage.src = "bee.svg";//setting the source for 'beeImage'
+
 			var beeHive = new Image();
+			// 	beeHive.addEventListener("load", function () {
+			// 	ctx.drawImage(beeHive,0,0, x, y);
+
+			// }, false);
 			beeHive.src = "beeHive.svg";
+
 			var timer = 900;//setting a value for the timer
 			var globalAlpha = 1;//setting a value for the transparency
 
 			
-			// function drawCircle(x,y,r){
-			// 	ctx.beginPath();
-			// 	ctx.arc(x,y,r,0,2*Math.PI);
-			// 	ctx.fill();//filling the circle
-			// }
+			
 			//creating random boundaries that keep changing that appear within the canvas (there has been a boundary created below that appears on the edges of the canvas) When the bee touches the boundaries if will apeear to 'bounce' off and a new randomly created set of boundaries is created and so on
 			//boundaies referenced from the code examples found on blackboard html5canvas, ch5, CH5EX4.html
-			function changeBoundaries() {
-				if (bee.centreX - scene.boundaryX.min >= scene.boundaryX.max - bee.centreX) {
-					scene.boundaryX.min = Math.floor(Math.random() * (x / 2));//using Math.random to create a random number for the x axis
+			function changeBoundaries(bee) {
+				if (bee.centreX - bee.boundaryX.min >= bee.boundaryX.max - bee.centreX) {
+					bee.boundaryX.min = Math.floor(Math.random() * (x / 2));//using Math.random to create a random number for the x axis
 				} else {
-					scene.boundaryX.max = (x / 2) + Math.floor(Math.random() * (x / 2));//using Math.random to create a random number for the y axis
+					bee.boundaryX.max = (x / 2) + Math.floor(Math.random() * (x / 2));//using Math.random to create a random number for the y axis
 				}
-				if (bee.centreY - scene.boundaryY.min >= scene.boundaryY.max - bee.centreY) {
-					scene.boundaryY.min = Math.floor(Math.random() * (y / 2));
+				if (bee.centreY - bee.boundaryY.min >= bee.boundaryY.max - bee.centreY) {
+					bee.boundaryY.min = Math.floor(Math.random() * (y / 2));
 				} else {
-					scene.boundaryY.max = (y / 2) + Math.floor(Math.random() * (y / 2));
+					bee.boundaryY.max = (y / 2) + Math.floor(Math.random() * (y / 2));
 				}
 			}
+
+
+
 			function animate(){//creating a function called 'animate'
 				ctx.clearRect(0,0,x,y);//clearing the canvas
 				// ctx.rect(scene.boundaryX.min, scene.boundaryY.min, scene.boundaryX.max, scene.boundaryY.max); //using this to draw a rectangle to show the boundaries to see if they are working
 				// ctx.stroke();//drawing the rectangle
 				// drawCircle(bee.centreX,bee.centreY,20);//calling the drawCircle function. The x and y cor-ordinates have been defined
-				ctx.save();//saving the state of the canvas
-				ctx.globalAlpha = globalAlpha;
-				ctx.drawImage(beeImage,bee.centreX,bee.centreY, x / 25, y / 20);//drawing the image of the bee and then scaling the size of the bee
-				//creating boundaries for the canvas so that the bee cannot go outside of the canvas. Also been created are random boundaries to make the bee movement appear more random (see 'changeBoundaries' function). When the bee touches the boundaries if will apeear to 'bounce' off
-				ctx.restore();//restoring the state of the anvas to the previous state
-				if (bee.centreX < scene.boundaryX.min || bee.centreY < scene.boundaryY.min) {
-					// bee.speedX = -bee.speedX;
-					bee.speedX = 1 +Math.floor(Math.random()*bee.maxSpeed);
-					// bee.speedY = -bee.speedY;
-					bee.speedY = 1 +Math.floor(Math.random()*bee.maxSpeed);
-					beeImage.src = "bee.svg";
-					changeBoundaries();
-				}else if (bee.centreX > scene.boundaryX.max || bee.centreY > scene.boundaryY.max){ //(|| means or)
-					bee.speedX =  -1 - Math.floor(Math.random()*bee.maxSpeed);
-					bee.speedY = -1 - Math.floor(Math.random()*bee.maxSpeed);
-					beeImage.src = "beeLeft.svg";
-					changeBoundaries();
+				for (var i=1; i<= bees.total; i++){
+					var currentBee = bees["bee"+i];
+				if(currentBee.timer>= 0){
+					console.log(currentBee.timer);
+
+
+					ctx.save();//saving the state of the canvas
+					ctx.globalAlpha = bee.transparency;
+					ctx.drawImage(beeImage,currentBee.centreX,currentBee.centreY, x / 25, y / 20);//drawing the image of the bee and then scaling the size of the bee
+					//creating boundaries for the canvas so that the bee cannot go outside of the canvas. Also been created are random boundaries to make the bee movement appear more random (see 'changeBoundaries' function). When the bee touches the boundaries if will apeear to 'bounce' off
+					ctx.restore();//restoring the state of the anvas to the previous state
 				}
-				//Used https://www.w3schools.com/tags/tryit.asp?filename=tryhtml5_canvas_globalalpha for transparency on images
-				//if the timer reaches 0 then the timer will be 'reset' and the image will not be transparent
-				timer--;//decreaing the value of the timer
-				if(timer == 0){
-					globalAlpha = 1;
-					timer = 900;
+					if (currentBee.centreX + currentBee.speedX < currentBee.boundaryX.min || currentBee.centreY + currentBee.speedY < currentBee.boundaryY.min) {
+						// bee.speedX = -bee.speedX;
+						currentBee.speedX = 1 +Math.floor(Math.random()*currentBee.maxSpeed);
+						// bee.speedY = -bee.speedY;
+						currentBee.speedY = 1 +Math.floor(Math.random()*currentBee.maxSpeed);
+						beeImage.src = "bee.svg";
+						changeBoundaries(currentBee);
+					}else if (currentBee.centreX + currentBee.speedX > currentBee.boundaryX.max || currentBee.centreY + currentBee.speedY > currentBee.boundaryY.max){ //(|| means or)
+						currentBee.speedX =  -1 - Math.floor(Math.random()*currentBee.maxSpeed);
+						currentBee.speedY = -1 - Math.floor(Math.random()*currentBee.maxSpeed);
+						beeImage.src = "beeLeft.svg";
+						changeBoundaries(currentBee);
+					}
+					//Used https://www.w3schools.com/tags/tryit.asp?filename=tryhtml5_canvas_globalalpha for transparency on images
+					//if the timer reaches 0 then the timer will be 'reset' and the image will not be transparent
+				
+					if(currentBee.timer == 0){
+						bee.transparency = 1;
+					}
+					// //changing the transparency of the bee image after a set amount of time
+					if(currentBee.timer <= 180){
+						bee.transparency -= 1/180
+					}
+					if (currentBee.timer <= 900 && currentBee.timer >= 0){
+						currentBee.timer--;//decreaing the value of the timer
+					}
+					//Used https://www.w3schools.com/js/js_operators.asp to look at the different operators to find the one that is needed
+					currentBee.centreX += currentBee.speedX;//same as saying bee.centreX = beecentreX + bee.speedX
+					currentBee.centreY +=currentBee.speedY;
+					ctx.drawImage(beeHive,0,0,x,y);//drawing the image of the hive
+					
+					// NOTE TO SELF - IF THE BEE POS IS OUTSIDE OF BOUNDARY THEN CHANGE SPEED AND MAKE IT GO TO CENTRE - WRAP ANIMATE IF IN AN IF (IF WILL SAY - IF THE BEE POS IS OUTSIDE OF BOUNDARY THEN CHANGE SPEED AND MAKE IT GO TO CENTRE ELSE RANDOM SHIZZ)
 				}
-				//changing the transparency of the bee image after a set amount of time
-				if(timer <= 180){
-					globalAlpha -= 1/180
-				}
-				// bees = { bee1: {bee}}
-				// for(i = 1; i<=bee.length; i++){
-				// 	bees[bee+i] //need to then update bee
-				// }
-				// function addBee(){bee[bee+](bees.length+1)} = //template?
-				//Used https://www.w3schools.com/js/js_operators.asp to look at the different operators to find the one that is needed
-				bee.centreX += bee.speedX;//same as saying bee.centreX = beecentreX + bee.speedX
-				bee.centreY +=bee.speedY;
-				ctx.drawImage(beeHive,0,0,x,y);//drawing the image of the hive
-				// NOTE TO SELF - IF THE BEE POS IS OUTSIDE OF BOUNDARY THEN CHANGE SPEED AND MAKE IT GO TO CENTRE - WRAP ANIMATE IF IN AN IF (IF WILL SAY - IF THE BEE POS IS OUTSIDE OF BOUNDARY THEN CHANGE SPEED AND MAKE IT GO TO CENTRE ELSE RANDOM SHIZZ)
 			}
 			setInterval(animate, 1000/60);//setInterval is a method that is used to call a function and runs the function after a certain amount of time. In this instance the animate function is being called every so many miliseconds. This animates the bee
-		}
+
+
+			//increment
+			var total = 0;
+
+
+			function btnClick(){
+				newBeeFunction();
+				document.getElementById('inc').value = total;
+			}
+
+			document.getElementById('beeButton').addEventListener("click",btnClick);
+
+
+	};
+
 </script>
 
 </head>
 <body>
 	<canvas id="bee" width="800" height="600"></canvas><!--Creating a canvas element and giving it a width and a height-->
 
-<button id="beeButton" onclick="BtnClick();">Bee</button>
-<input type ="text" id="inc" value="0">
 
-<script>
-var total = 0;
-// increment
-function BtnClick() {
-    total++;
-    document.getElementById('inc').value = total;
-}
-</script>
-
-
+	<button id="beeButton">Bee</button>
+	<input type ="text" id="inc" value="0">
 
 
 </body>
