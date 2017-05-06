@@ -9,7 +9,7 @@
 		background-size: cover;}
 	</style>
 	<script type="text/javascript">
-		window.onload = function (){//creating a 'window.onload' function so the JavaScript code will be ran once the page has been loaded
+		window.onclick = function (){//creating a 'window.onload' function so the JavaScript code will be ran once the page has been loaded
 		//referenced from the code examples found on blackboard html5canvas, ch5, CH5EX11.html
 			var canvas = document.getElementById('bee');
 			var ctx = canvas.getContext('2d');
@@ -27,7 +27,7 @@
 			//creating function animation for bee to flow a path
 			function bee(){
 
-			//clears whole of canvas 
+			//clears whole of canvas
 			ctx.clearRect(0,0,x,y);
 			//drawing the hive image within the canvas
 			ctx.drawImage(beeHive, 0, 0, x, y);
@@ -35,14 +35,14 @@
 			//position of bee travelling along the path given
 			var travelPosition = ball.travelPosition;
 
-			//start point of the curve path x value 
+			//start point of the curve path x value
 			var curveX = 3 * (point1.x - point0.x);
 			//the x value of the bezier curve on the second curve
 			var bezierX = 3 * (point2.x - point1.x) - curveX;
 			//the start position of the path for the bee to follow x value
 			var startPositionX = point3.x - point0.x - curveX - bezierX;
 
-			//start point of the curve path y value 
+			//start point of the curve path y value
 			var curveY = 3 * (point1.y - point0.y);
 			//the y value of the bezier curve on the second curve
 			var bezierY = 3 * (point2.y - point1.y) - curveY;
@@ -84,5 +84,40 @@
 </head>
 <body>
 	<canvas id="bee" width="800" height="600"></canvas><!--Creating a canvas element and giving it a width and a height-->
+<button Id="buttonOne">Session 1</button>
+<p>Session 1</p>
+	<div id="result1"></div>
+
+
+<button id="buttonTwo">Session 2</button>
+	<p>Session 2</p>
+	<div id="result2"></div>
+
+
+
+<button id="buttonThree">Session 3</button>
+	<p>Session 3</p>
+	<div id="result3"></div>
+
+
+<button id="buttonFour">Session 4</button>
+	<p>Session 4</p>
+	<div id="result4"></div>
+
+
+<button id="buttonFive">Session 5</button>
+	<p>Session 5</p>
+	<div id="result5"></div>
+
+
+	<button id="buttonReset">Reset</button>
+
+
+
+
+	<p>Button press for conference sessions.</p>
+
+	<script src="localStorage.js"></script>
+
 </body>
 </html>
