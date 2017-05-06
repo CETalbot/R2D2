@@ -1,3 +1,13 @@
+
+//event listners for buttons
+document.getElementById("buttonOne").addEventListener("click", Session1);
+document.getElementById("buttonTwo").addEventListener("click", Session2);
+document.getElementById("buttonThree").addEventListener("click", Session3);
+document.getElementById("buttonFour").addEventListener("click", Session4);
+document.getElementById("buttonFive").addEventListener("click", Session5);
+document.getElementById("buttonReset").addEventListener("click", reset);
+
+
 function Session1() {
     if(typeof(Storage) !== "undefined") {
         if (localStorage.clickcount1) {
@@ -6,8 +16,6 @@ function Session1() {
             localStorage.clickcount1 = 1;
         }
         document.getElementById("result1").innerHTML = + localStorage.clickcount1
-    } else {
-        document.getElementById("result1").innerHTML = "Sorry, your browser does not support web storage...";
     }
 }
 
@@ -50,6 +58,20 @@ function Session4() {
         document.getElementById("result4").innerHTML = + localStorage.clickcount4
     } else {
         document.getElementById("result4").innerHTML = "Sorry, your browser does not support web storage...";
+    }
+}
+
+
+function Session5() {
+    if(typeof(Storage) !== "undefined") {
+        if (localStorage.clickcount5) {
+            localStorage.clickcount5 = Number(localStorage.clickcount5)+1;
+        } else {
+            localStorage.clickcount5 = 1;
+        }
+        document.getElementById("result5").innerHTML = + localStorage.clickcount5
+    } else {
+        document.getElementById("result5").innerHTML = "Sorry, your browser does not support web storage...";
     }
 }
 
