@@ -9,7 +9,9 @@
 		background-size: cover;}
 	</style>
 	<script type="text/javascript">
-		window.onclick = function (){//creating a 'window.onload' function so the JavaScript code will be ran once the page has been loaded
+		var beesTotal = 0;
+		var bees = {"total":0,};
+		window.onload = function (){//creating a 'window.onload' function so the JavaScript code will be ran once the page has been loaded
 		//referenced from the code examples found on blackboard html5canvas, ch5, CH5EX11.html
 			var canvas = document.getElementById('bee');
 			var ctx = canvas.getContext('2d');
@@ -18,41 +20,76 @@
 			//working out width and height of canvas size
 			var x = canvas.width;
 			var y = canvas.height;
+
+
+
+			function newBeeFunction(){
+				bees.total++;
+				bees["bee"+(bees.total)] = {//creating a variable for the bee and giving it properties
+			 		"src":"bee.svg",//setting the source for the bee image
+			 		"transparency":1,
+			 		"point0": {//setting the properties for the boundary - x axis
+					"x":400,//the minimum value the boundary can be on the y axis is 0
+					"y":200,//the maximum value the boundary can be on the x axis is the value of width of the canvas
+				},
+			 		
+			 		"point1": {//setting the properties for the boundary - x axis
+					"x":70,//the minimum value the boundary can be on the y axis is 0
+					"y":200,//the maximum value the boundary can be on the x axis is the value of width of the canvas
+				},
+			 		"point2": {//setting the properties for the boundary - x axis
+					"x":125,//the minimum value the boundary can be on the y axis is 0
+					"y":295,//the maximum value the boundary can be on the x axis is the value of width of the canvas
+				},
+				"point3":{//setting the properties for the boundary - y axis
+					"x":30,//the minimum value the boundary can be on the y axis is 0
+					"y":270,//the maximum value the boundary can be on the y axis is the value of the height of the canvas
+				}
+			 	}
+			
+
+	
+				console.log(bees);
+			
+
+			};
 			//creating the hive and bee images inside the canvas
 			var beeImage = new Image();
-			beeImage.src = "bee.svg"
+			beeImage.src = "bee.svg";
 			var beeHive = new Image();
 			beeHive.src = "beeHive.svg";
 
 			//creating function animation for bee to flow a path
 			function bee(){
-
 			//clears whole of canvas
 			ctx.clearRect(0,0,x,y);
 			//drawing the hive image within the canvas
 			ctx.drawImage(beeHive, 0, 0, x, y);
 
+			for (var i=1; i<= bees.total; i++){
+				var currentBee = bees["bee" + (bees.total)];
+
 			//position of bee travelling along the path given
 			var travelPosition = ball.travelPosition;
 
 			//start point of the curve path x value
-			var curveX = 3 * (point1.x - point0.x);
+			var curveX = 3 * (currentBee.point1.x - currentBee.point0.x);
 			//the x value of the bezier curve on the second curve
-			var bezierX = 3 * (point2.x - point1.x) - curveX;
+			var bezierX = 3 * (currentBee.point2.x - currentBee.point1.x) - curveX;
 			//the start position of the path for the bee to follow x value
-			var startPositionX = point3.x - point0.x - curveX - bezierX;
+			var startPositionX = currentBee.point3.x - currentBee.point0.x - curveX - bezierX;
 
 			//start point of the curve path y value
-			var curveY = 3 * (point1.y - point0.y);
+			var curveY = 3 * (currentBee.point1.y - currentBee.point0.y);
 			//the y value of the bezier curve on the second curve
-			var bezierY = 3 * (point2.y - point1.y) - curveY;
+			var bezierY = 3 * (currentBee.point2.y - currentBee.point1.y) - curveY;
 			//the start position of the path for the bee to follow y value
-			var startPositionY = point3.y - point0.y - curveY - bezierY;
+			var startPositionY = currentBee.point3.y - currentBee.point0.y - curveY - bezierY;
 
 			//this is x value of travel along the path
-			var xtravel = startPositionX*(travelPosition*travelPosition*travelPosition) + bezierX*(travelPosition*travelPosition) + curveX*travelPosition + point0.x;
+			var xtravel = startPositionX*(travelPosition*travelPosition*travelPosition) + bezierX*(travelPosition*travelPosition) + curveX*travelPosition + currentBee.point0.x;
 			//this is y value of travel along the path
-			var ytravel = startPositionY*(travelPosition*travelPosition*travelPosition) + bezierY*(travelPosition*travelPosition) + curveY*travelPosition + point0.y;
+			var ytravel = startPositionY*(travelPosition*travelPosition*travelPosition) + bezierY*(travelPosition*travelPosition) + curveY*travelPosition + currentBee.point0.y;
 
 			//the speed the bee will travel along the path
 			ball.travelPosition += ball.speed;
@@ -66,19 +103,67 @@
 			ctx.drawImage(beeImage, xtravel, ytravel, x / 25, y / 20);
 
 		}
-
+		}
 			//points of the path which the bee starts at and ends at to complete the path
-			var point0 = {x:400, y:200};
-			var point1 = {x:70, y:200};
-			var point2 = {x:125, y:295};
-			var point3 = {x:30, y:270};
+
 			var ball = {x:0, y:0, speed:0.01, travelPosition:0};
 
-			//this shows the animation but setting how many times the function is called
-			setInterval(bee,33);
+			function buttonOne(){
+				newBeeFunction();
+				point2 = {"x":125, "y":295};
+				point3 = {"x":30, "y":270};
+				bee();
+				//this shows the animation but setting how many times the function is called
+				setInterval(bee,33);
+			}
 
+			document.getElementById('buttonOne').addEventListener("click",buttonOne);
 
+			function buttonTwo(){
+				newBeeFunction();
+				point2 = {"x":120, "y":260};
+				point3 = {"x":105, "y":270};
+				bee();
+				//this shows the animation but setting how many times the function is called
+				setInterval(bee,33);
+			}
+
+			document.getElementById('buttonTwo').addEventListener("click",buttonTwo);
+
+			function buttonThree(){
+				newBeeFunction();
+				point2 = {"x":150, "y":260};
+				point3 = {"x":125, "y":270};
+				bee();
+				//this shows the animation but setting how many times the function is called
+				setInterval(bee,33);
+			}
+
+			document.getElementById('buttonThree').addEventListener("click",buttonThree);
+
+			function buttonFour(){
+				newBeeFunction();
+				point2 = {"x":170, "y":240};
+				point3 = {"x":150, "y":270};
+				bee();
+				//this shows the animation but setting how many times the function is called
+				setInterval(bee,33);
+			}
+
+			document.getElementById('buttonFour').addEventListener("click",buttonFour);
+
+			function buttonFive(){
+				newBeeFunction();
+				point2 = {"x":190, "y":230};
+				point3 = {"x":170, "y":270};
+				bee();
+				//this shows the animation but setting how many times the function is called
+				setInterval(bee,33);
+			}
+
+			document.getElementById('buttonFive').addEventListener("click",buttonFive);
 		}
+
 
 	</script>
 </head>
@@ -87,7 +172,7 @@
 <button Id="buttonOne">Session 1</button>
 <p>Session 1</p>
 	<div id="result1"></div>
-
+	
 
 <button id="buttonTwo">Session 2</button>
 	<p>Session 2</p>
