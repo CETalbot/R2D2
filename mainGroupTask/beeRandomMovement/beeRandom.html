@@ -1,4 +1,4 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
@@ -15,12 +15,12 @@
 		var beesTotal = 0;
 		var bees = {"total":0,};
 
-	
+
 
 
 		window.onload = function (){//creating a 'window.onload' function so the JavaScript code will be ran once the page has been loaded
 
-			
+
 
 			var canvas = document.getElementById('bee');
 			var ctx = canvas.getContext('2d');
@@ -52,11 +52,11 @@
 					"max": y,//the maximum value the boundary can be on the y axis is the value of the height of the canvas
 				}
 			 	}
-			
 
-	
+
+
 				console.log(bees);
-			
+
 
 			};
 
@@ -66,7 +66,7 @@
 
 
 
-		
+
 			var beeImage = new Image();//creating a new image called 'beeImage'
 			// beeImage.addEventListener("load", function () {
 			// 	ctx.drawImage(beeImage,20,50, x / 25, y / 20);
@@ -84,8 +84,8 @@
 			var timer = 900;//setting a value for the timer
 			var globalAlpha = 1;//setting a value for the transparency
 
-			
-			
+
+
 			//creating random boundaries that keep changing that appear within the canvas (there has been a boundary created below that appears on the edges of the canvas) When the bee touches the boundaries if will apeear to 'bounce' off and a new randomly created set of boundaries is created and so on
 			//boundaies referenced from the code examples found on blackboard html5canvas, ch5, CH5EX4.html
 			function changeBoundaries(bee) {
@@ -135,7 +135,7 @@
 					}
 					//Used https://www.w3schools.com/tags/tryit.asp?filename=tryhtml5_canvas_globalalpha for transparency on images
 					//if the timer reaches 0 then the timer will be 'reset' and the image will not be transparent
-				
+
 					if(currentBee.timer == 0){
 						bee.transparency = 1;
 					}
@@ -150,7 +150,7 @@
 					currentBee.centreX += currentBee.speedX;//same as saying bee.centreX = beecentreX + bee.speedX
 					currentBee.centreY +=currentBee.speedY;
 					ctx.drawImage(beeHive,0,0,x,y);//drawing the image of the hive
-					
+
 					// NOTE TO SELF - IF THE BEE POS IS OUTSIDE OF BOUNDARY THEN CHANGE SPEED AND MAKE IT GO TO CENTRE - WRAP ANIMATE IF IN AN IF (IF WILL SAY - IF THE BEE POS IS OUTSIDE OF BOUNDARY THEN CHANGE SPEED AND MAKE IT GO TO CENTRE ELSE RANDOM SHIZZ)
 				}
 			}
@@ -162,6 +162,7 @@
 
 
 			function btnClick(){
+				total++;
 				newBeeFunction();
 				document.getElementById('inc').value = total;
 			}
