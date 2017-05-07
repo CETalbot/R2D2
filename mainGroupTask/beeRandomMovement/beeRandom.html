@@ -32,9 +32,9 @@
 
 
 
-			function newBeeFunction(){
-				bees.total++;
-				bees["bee"+(bees.total)] = {//creating a variable for the bee and giving it properties
+			function newBeeFunction(){//creating a function called 'newBeeFunction'. In this function an array is being created to hold all the values for the bees - https://www.w3schools.com/js/js_arrays.asp was used to look at how to create an array
+				bees.total++;//adding one to bees.total
+				bees["bee"+(bees.total)] = {//creating a variable for the bees and giving it properties
 			 		"src":"bee.svg",//setting the source for the bee image
 			 		"centreX": 150,//setting the value of the bee
 			 		"centreY": 200,//setting the value of the bee
@@ -53,17 +53,9 @@
 				}
 			 	}
 
-
-
-				console.log(bees);
-
+				console.log(bees);//writing the bees varaible in the window browser to see if the variable works
 
 			};
-
-
-
-
-
 
 
 
@@ -81,8 +73,7 @@
 			// }, false);
 			beeHive.src = "beeHive.svg";
 
-			var timer = 900;//setting a value for the timer
-			var globalAlpha = 1;//setting a value for the transparency
+	
 
 
 
@@ -108,10 +99,11 @@
 				// ctx.rect(scene.boundaryX.min, scene.boundaryY.min, scene.boundaryX.max, scene.boundaryY.max); //using this to draw a rectangle to show the boundaries to see if they are working
 				// ctx.stroke();//drawing the rectangle
 				// drawCircle(bee.centreX,bee.centreY,20);//calling the drawCircle function. The x and y cor-ordinates have been defined
-				for (var i=1; i<= bees.total; i++){
+				for (var i=1; i<= bees.total; i++){//creating a loop to loop through the bees array
 					var currentBee = bees["bee"+i];
-				if(currentBee.timer>= 0){
-					console.log(currentBee.timer);
+				if(currentBee.timer>= 0){//if the timer is greater than 0 then the following code will be ran. Basically if the timer is greater than 0 the animation will run
+					console.log(currentBee.timer);//writing the timer varaible in the window browser to see if the timer works and it count downs from 900 to 0
+
 
 
 					ctx.save();//saving the state of the canvas
@@ -161,7 +153,7 @@
 			var total = 0;
 
 
-			function btnClick(){
+			function btnClick(){//Creating a function called btnClick. Once the button has been clicked then the incrememtor will increase by one, the newBeeFunction
 				total++;
 				newBeeFunction();
 				document.getElementById('inc').value = total;
