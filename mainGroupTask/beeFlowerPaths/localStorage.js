@@ -72,5 +72,7 @@ function Session5() { // create function session 5
 
 
 function reset() { // create a function called reset
-  localStorage.clear(); // if the reset button is pressed then clear any of the values inside of the local storage
+  localStorage.clear(); // if the reset button is pressed then clear any of the values inside of the local storage.
 }
+
+// code refrenced from https://www.w3schools.com/html/tryit.asp?filename=tryhtml5_webstorage_local_clickcount
