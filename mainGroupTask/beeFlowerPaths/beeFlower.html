@@ -9,8 +9,11 @@
 		background-size: cover;}
 	</style>
 	<script type="text/javascript">
-		var beesTotal = 0;
-		var bees = {"total":0,};
+
+		var beesTotal = 0;//creating a variable called beesTotal
+		var bees = {"total":0,};//creating a variable called bees
+		//These variables are being used in the bees array
+
 		window.onload = function (){//creating a 'window.onload' function so the JavaScript code will be ran once the page has been loaded
 		//referenced from the code examples found on blackboard html5canvas, ch5, CH5EX11.html
 			var canvas = document.getElementById('bee');
@@ -18,95 +21,100 @@
 			//this code works out the proportion of the bee compared to the canvas
 			canvas.height = canvas.width / 1.4;
 			//working out width and height of canvas size
-			var x = canvas.width;
-			var y = canvas.height;
+			var x = canvas.width;//creating a varaible to store the value for the width of the canvas
+			var y = canvas.height;//creating a variable to store the value for the height of the canvas
 
 
-
-			function newBeeFunction(buttonNo){
-				bees.total++;
+			//Used https://www.w3schools.com/js/js_properties.asp to look at the syntax for adding multiple properties to a variable
+			function newBeeFunction(buttonNo){//creating a function called 'newBeeFunction'. In this function an array is being created to hold all the values for the bees - https://www.w3schools.com/js/js_arrays.asp was used to look at how to create an array
+					bees.total++;//adding one to bees.total
 					bees["bee"+(bees.total)] = {//creating a variable for the bee and giving it properties
 			 		"src":"bee.svg",//setting the source for the bee image
-			 		"transparency":1,
-			 		"timer":150,
-			 		"point0": {//setting the properties for the boundary - x axis
-					"x":400,//the minimum value the boundary can be on the y axis is 0
-					"y":200,//the maximum value the boundary can be on the x axis is the value of width of the canvas
+			 		"transparency":1,//setting the transparency value for the bee. 1 means that the bee is fully visable
+			 		"timer":150,//setting the value of the timer to 3 seconds. Once the timer starts (see code below) it will count down from 900 to 0 and then fade out
+			 		"point0": {//setting the properties for the curve for the path on the x and y axis - point0
+					"x":400,//value of the point on the x axis
+					"y":200,//value of the point on the y axis
 				},
-			 		
-			 		"point1": {//setting the properties for the boundary - x axis
-					"x":70,//the minimum value the boundary can be on the y axis is 0
-					"y":200,//the maximum value the boundary can be on the x axis is the value of width of the canvas
-				},
-			
-				"travelPosition":0,
-				"speed":0.01,
+			 		"point1": {//setting the properties for the curve for the path on the x and y axis - point1
+					"x":70,//value of the point on the x axis
+					"y":200,//value of the point on the y axis
+				},//these point values have been assigned to each bee because these points do not change along the path. See the if statement below which has been created for the points that do need to change for each bee depending on which button has been pressed
+				"travelPosition":0,//setting the position of the bee along the path. 0 means that the bee is starting at the start point of the path
+				"speed":0.01,//setting the speed for the bee
 			 	}
-				if(buttonNo===1){
-					bees["bee"+(bees.total)].point2 = {//setting the properties for the boundary - x axis
-					"x":125,//the minimum value the boundary can be on the y axis is 0
-					"y":295,//the maximum value the boundary can be on the x axis is the value of width of the canvas
+			 	//an if statement which changes the value of point2 and point3 when a certain session button has been pressed. This enables the bee to follow different paths to land on the different flowers
+				if(buttonNo===1){//if button 1 has been pressed
+					bees["bee"+(bees.total)].point2 = {//setting the properties for the curve for the path on the x and y axis - point2
+					"x":125,//value of the point on the x axis
+					"y":295,//value of the point on the y axis
 				};
-				bees["bee"+(bees.total)].point3 = {//setting the properties for the boundary - x axis
-					"x":30,//the minimum value the boundary can be on the y axis is 0
-					"y":270,//the maximum value the boundary can be on the y axis is the value of the height of the canvas
+				bees["bee"+(bees.total)].point3 = {//setting the properties for the curve for the path on the x and y axis - point3
+					"x":30,//value of the point on the x axis
+					"y":270,//value of the point on the y axis
 				};}
-				else if (buttonNo===2){
-					bees["bee"+(bees.total)].point2 = {//setting the properties for the boundary - x axis
-					"x":120,//the minimum value the boundary can be on the y axis is 0
-					"y":260,//the maximum value the boundary can be on the x axis is the value of width of the canvas
+				else if (buttonNo===2){//if button 2 has been pressed
+					bees["bee"+(bees.total)].point2 = {//setting the properties for the curve for the path on the x and y axis - point2
+					"x":120,//value of the point on the x axis
+					"y":260,//value of the point on the y axis
 				};
-				bees["bee"+(bees.total)].point3 = {//setting the properties for the boundary - x axis
-					"x":105,//the minimum value the boundary can be on the y axis is 0
-					"y":270,//the maximum value the boundary can be on the y axis is the value of the height of the canvas
+				bees["bee"+(bees.total)].point3 = {//setting the properties for the curve for the path on the x and y axis - point3
+					"x":105,//value of the point on the x axis
+					"y":270,//value of the point on the y axis
 				};}
-				else if(buttonNo===3){
-					bees["bee"+(bees.total)].point2 = {//setting the properties for the boundary - x axis
-					"x":150,//the minimum value the boundary can be on the y axis is 0
-					"y":260,//the maximum value the boundary can be on the x axis is the value of width of the canvas
+				else if(buttonNo===3){//if button 3 has been pressed
+					bees["bee"+(bees.total)].point2 = {//setting the properties for the curve for the path on the x and y axis - point2
+					"x":150,//value of the point on the x axis
+					"y":260,//value of the point on the y axis
 				};
-				bees["bee"+(bees.total)].point3 = {//setting the properties for the boundary - x axis
-					"x":190,//the minimum value the boundary can be on the y axis is 0
-					"y":270,//the maximum value the boundary can be on the y axis is the value of the height of the canvas
+				bees["bee"+(bees.total)].point3 = {//setting the properties for the curve for the path on the x and y axis - point3
+					"x":190,//value of the point on the x axis
+					"y":270,//value of the point on the y axis
 				};}
-				else if(buttonNo===4){
-					bees["bee"+(bees.total)].point2 = {//setting the properties for the boundary - x axis
-					"x":170,//the minimum value the boundary can be on the y axis is 0
-					"y":240,//the maximum value the boundary can be on the x axis is the value of width of the canvas
+				else if(buttonNo===4){//if button 4 has been pressed
+					bees["bee"+(bees.total)].point2 = {//setting the properties for the curve for the path on the x and y axis - point2
+					"x":170,//value of the point on the x axis
+					"y":240,//value of the point on the y axis
 				};
-				bees["bee"+(bees.total)].point3 = {//setting the properties for the boundary - x axis
-					"x":275,//the minimum value the boundary can be on the y axis is 0
-					"y":270,//the maximum value the boundary can be on the y axis is the value of the height of the canvas
+				bees["bee"+(bees.total)].point3 = {//setting the properties for the curve for the path on the x and y axis - point3
+					"x":275,//value of the point on the x axis
+					"y":270,//value of the point on the y axis
 				};}
-				else if(buttonNo===5){
-					bees["bee"+(bees.total)].point2 = {//setting the properties for the boundary - x axis
-					"x":190,//the minimum value the boundary can be on the y axis is 0
-					"y":230,//the maximum value the boundary can be on the x axis is the value of width of the canvas
+				else if(buttonNo===5){//if button 5 has been pressed
+					bees["bee"+(bees.total)].point2 = {//setting the properties for the curve for the path on the x and y axis - point2
+					"x":190,//value of the point on the x axis
+					"y":230,//value of the point on the y axis
 				};
-				bees["bee"+(bees.total)].point3 = {//setting the properties for the boundary - x axis
-					"x":360,//the minimum value the boundary can be on the y axis is 0
-					"y":270,//the maximum value the boundary can be on the y axis is the value of the height of the canvas
+				bees["bee"+(bees.total)].point3 = {//setting the properties for the curve for the path on the x and y axis - point3
+					"x":360,//value of the point on the x axis
+					"y":270,//value of the point on the y axis
 				};}
 		
 
-				console.log(bees);
-			
+				console.log(bees);//writing the bees varaible in the window browser to see if the variable works
 
 			};
-			//creating the hive and bee images inside the canvas
-			var beeImage = new Image();
-			beeImage.src = "bee.svg";
+
+
+			//creating the hive and bee images inside the canvas. Referenced from https://developer.mozilla.org/en-US/docs/Web/API/HTMLImageElement/Image
+			var beeImage = new Image();//creating a new image called 'beeImage'
+			beeImage.src = "bee.svg";//setting the source for 'beeImage'
+
 			var beeHive = new Image();
 			beeHive.src = "beeHive.svg";
 
+
+
+
+
 			//creating function animation for bee to flow a path
 			function bee(){
-			//clears whole of canvas
-			ctx.clearRect(0,0,x,y);
-			//drawing the hive image within the canvas
-			ctx.drawImage(beeHive, 0, 0, x, y);
+			ctx.clearRect(0,0,x,y);//clears whole of canvas
+			ctx.drawImage(beeHive, 0, 0, x, y);//drawing the hive image within the canvas
 
-			for (var i=1; i<= bees.total; i++){
+
+			//for loop referencded from https://www.w3schools.com/js/js_loop_for.asp
+			for (var i=1; i<= bees.total; i++){//creating a for loop to loop through the bees array
 				var currentBee = bees["bee" + i];
 				
 
@@ -139,23 +147,23 @@
 			
 			}
 				currentBee.timer--;
-				if(currentBee.timer<=0){
+				if(currentBee.timer<=0){//this if statement changes the transparency of the bee once the timer has reached 0
 				currentBee.transparency -= 1/100; 
 				if(currentBee.transparency<0){
 					currentBee.transparency=0;
 				}
-				console.log(currentBee.transparency);
+				console.log(currentBee.transparency);//writing the currentBees varaible and the transparency property of the variable in the window browser to see if the variable works
 				}
-			ctx.save();
-			ctx.globalAlpha = currentBee.transparency;
+			ctx.save();//saving the state of the canvas
+			ctx.globalAlpha = currentBee.transparency;//returning the value of the transparancy of the bee
 			//draws the bee image inside the canvas
 			ctx.drawImage(beeImage, currentBee.xtravel, currentBee.ytravel, x / 25, y / 20);
-			ctx.restore();
+			ctx.restore();//restoring the state of the anvas to the previous state
 
 		}
 		}
-		setInterval(bee,33);
-			//points of the path which the bee starts at and ends at to complete the path
+		setInterval(bee,33);//setInterval is a method that is used to call a function and runs the function after a certain amount of time. In this instance the animate function is being called every 33 miliseconds. This animates the bee
+	
 
 			
 
@@ -168,32 +176,28 @@
 
 			function buttonTwo(){
 				newBeeFunction(2);
-			
 			}
 
 			document.getElementById('buttonTwo').addEventListener("click",buttonTwo);
 
 			function buttonThree(){
 				newBeeFunction(3);
-			
 			}
 
 			document.getElementById('buttonThree').addEventListener("click",buttonThree);
 
 			function buttonFour(){
 				newBeeFunction(4);
-		
 			}
 
 			document.getElementById('buttonFour').addEventListener("click",buttonFour);
 
 			function buttonFive(){
 				newBeeFunction(5);
-			
 			}
 
 			document.getElementById('buttonFive').addEventListener("click",buttonFive);
-		}
+	}
 
 
 	</script>
@@ -228,10 +232,7 @@
 
 	<button id="buttonReset">Reset</button>
 
-
-
-
-	<p>Button press for conference sessions.</p>
+	<p>Press a button for a conference session.</p>
 
 	<script src="localStorage.js"></script>
 
