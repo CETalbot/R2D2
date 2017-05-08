@@ -89,7 +89,7 @@
 					"x":360,//value of the point on the x axis
 					"y":270,//value of the point on the y axis
 				};}
-		
+
 
 				console.log(bees);//writing the bees varaible in the window browser to see if the variable works
 
@@ -116,7 +116,7 @@
 			//for loop referencded from https://www.w3schools.com/js/js_loop_for.asp
 			for (var i=1; i<= bees.total; i++){//creating a for loop to loop through the bees array
 				var currentBee = bees["bee" + i];
-				
+
 
 
 			//start point of the curve path x value
@@ -144,11 +144,11 @@
 			//the if statement adjusts the speed to stop at the end point
 			if (currentBee.travelPosition > 1){
 				currentBee.travelPosition = 1;
-			
+
 			}
 				currentBee.timer--;
 				if(currentBee.timer<=0){//this if statement changes the transparency of the bee once the timer has reached 0
-				currentBee.transparency -= 1/100; 
+				currentBee.transparency -= 1/100;
 				if(currentBee.transparency<0){
 					currentBee.transparency=0;
 				}
@@ -163,77 +163,110 @@
 		}
 		}
 		setInterval(bee,33);//setInterval is a method that is used to call a function and runs the function after a certain amount of time. In this instance the animate function is being called every 33 miliseconds. This animates the bee
-	
 
-			
 
-			function buttonOne(){
+
+
+			function buttonOne(){ // create function buttonOne
 				newBeeFunction(1);
 				//this shows the animation but setting how many times the function is called
 			}
 
-			document.getElementById('buttonOne').addEventListener("click",buttonOne);
+			document.getElementById('buttonOne').addEventListener("click",buttonOne); // when the first button is clicked run the buttonOne function which a bee comes out of the hive and lands on the first flower which represents Session1
 
-			function buttonTwo(){
-				newBeeFunction(2);
+			function buttonTwo(){ // create function buttonTwo
+				newBeeFunction(2); // calls seccond part of the function where a bee comes out of the hive and moves and lands on seccond flower
 			}
 
-			document.getElementById('buttonTwo').addEventListener("click",buttonTwo);
+			document.getElementById('buttonTwo').addEventListener("click",buttonTwo); // when the seccond button is clicked run the buttonTwo function which a bee comes out of the hive and lands on the seccond flower which represents Session2
 
-			function buttonThree(){
-				newBeeFunction(3);
+			function buttonThree(){ // create function buttonThree
+				newBeeFunction(3); // calls third part of the function where a bee comes out of the hive and moves and lands on third flower
 			}
 
-			document.getElementById('buttonThree').addEventListener("click",buttonThree);
+			document.getElementById('buttonThree').addEventListener("click",buttonThree); // when the third button is clicked run the buttonThree function which a bee comes out of the hive and lands on the third flower which represents Session3
 
-			function buttonFour(){
-				newBeeFunction(4);
+			function buttonFour(){ // create function buttonFour
+				newBeeFunction(4); // calls fourth part of the function where a bee comes out of the hive and moves and lands on fourth flower
 			}
 
-			document.getElementById('buttonFour').addEventListener("click",buttonFour);
+			document.getElementById('buttonFour').addEventListener("click",buttonFour); // when the fourth button is clicked run the buttonFour function which a bee comes out of the hive and lands on the fourth flower which represents Session4
 
-			function buttonFive(){
-				newBeeFunction(5);
+			function buttonFive(){ // create function buttonFive
+				newBeeFunction(5); // calls fifth part of the function where a bee comes out of the hive and moves and lands on fifth flower
 			}
 
-			document.getElementById('buttonFive').addEventListener("click",buttonFive);
+			document.getElementById('buttonFive').addEventListener("click",buttonFive); // when the fifth button is clicked run the buttonFive function which a bee comes out of the hive and lands on the fifth flower which represents Session5
 	}
 
 
 	</script>
 </head>
 <body>
+
+<style type="text/css">
+#buttonOne{ /* setting the style and positioning of buttonOne*/
+padding: 15px 32px;
+font-size: 16px;
+	margin: 4px 2px;
+}
+
+#buttonTwo{ /* setting the style and positioning of buttonTwo */
+padding: 15px 32px;
+font-size: 16px;
+	margin: 4px 2px;
+}
+
+#buttonThree{ /* setting the style and positioning of buttonThree */
+padding: 15px 32px;
+font-size: 16px;
+	margin: 4px 2px;
+}
+
+#buttonFour{ /* setting the style and positioning of buttonFour */
+padding: 15px 32px;
+font-size: 16px;
+	margin: 4px 2px;
+}
+
+#buttonFive{ /* setting the style and positioning of buttonFive */
+padding: 15px 32px;
+font-size: 16px;
+	margin: 4px 2px;
+}
+
+#buttonReset{ /* setting the style and positioning of buttonReset*/
+padding: 15px 32px;
+font-size: 16px;
+	margin: 4px 2px;
+}
+</style>
 	<canvas id="bee" width="800" height="600"></canvas><!--Creating a canvas element and giving it a width and a height-->
-<button Id="buttonOne">Session 1</button>
-<p>Session 1</p>
-	<div id="result1"></div>
+<div id="buttons">
+<button Id="buttonOne">Session 1</button> <!-- create session 1 button-->
+
+	<div id="session1CurrentValue"></div> <!-- shows the current value stored in the local storage for first session-->
+
+
+<button id="buttonTwo">Session 2</button> <!-- create session 2 button-->
+<div id="session2CurrentValue"></div>  <!-- shows the current value stored in the local storage for seccond session-->
+
+
+
+<button id="buttonThree">Session 3</button> <!-- create session 3 button-->
+<div id="session3CurrentValue"></div>  <!-- shows the current value stored in the local storage for third session-->
+
+
+<button id="buttonFour">Session 4</button> <!-- create session 4 button-->
+<div id="session4CurrentValue"></div>  <!-- shows the current value stored in the local storage for fourth session-->
+
+
+<button id="buttonFive">Session 5</button> <!-- create session 5 button-->
+<div id="session5CurrentValue"></div>  <!-- shows the current value stored in the local storage for fifth session-->
+
+<button id="buttonReset">Reset</button> <!-- create resetbutton-->
+</div>
 	
-
-<button id="buttonTwo">Session 2</button>
-	<p>Session 2</p>
-	<div id="result2"></div>
-
-
-
-<button id="buttonThree">Session 3</button>
-	<p>Session 3</p>
-	<div id="result3"></div>
-
-
-<button id="buttonFour">Session 4</button>
-	<p>Session 4</p>
-	<div id="result4"></div>
-
-
-<button id="buttonFive">Session 5</button>
-	<p>Session 5</p>
-	<div id="result5"></div>
-
-
-	<button id="buttonReset">Reset</button>
-
-	<p>Press a button for a conference session.</p>
-
 	<script src="localStorage.js"></script>
 
 </body>
