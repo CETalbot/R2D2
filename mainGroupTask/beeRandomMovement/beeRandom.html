@@ -60,7 +60,7 @@
 			var beeHive = new Image();
 			beeHive.src = "beeHive.svg";
 
-	
+
 
 			//creating random boundaries that keep changing that appear within the canvas (there has been a boundary created below that appears on the edges of the canvas) When the bee touches the boundaries if will apeear to 'bounce' off and a new randomly created set of boundaries is created and so on. The boundaries are attatched to each bee so each bee has it's own boundaries
 			//boundaies referenced from the code examples found on blackboard html5canvas, ch5, CH5EX4.html
@@ -110,7 +110,7 @@
 						beeImage.src = "beeLeft.svg";
 						changeBoundaries(currentBee);
 					}
-				
+
 					//if the timer reaches 0 then the timer will be 'reset' and the image will not be transparent
 					if(currentBee.timer == 0){
 						bee.transparency = 1;
@@ -134,15 +134,15 @@
 
 
 			//increment
-			var total = 0;
+			var total = 0; // create a varible total with the current total being 0 until the button is clicked.
 
 
 			function btnClick(){//Creating a function called btnClick. Once the button has been clicked then the incrememtor will increase by one, the newBeeFunction will be called which will create a new bee
-				total++;
-				newBeeFunction();
-				document.getElementById('inc').value = total;
+				total++; // if the button is clicked then increment (add 1 to the current total)
+				newBeeFunction(); // when the button is also pressed call the newBeeFunction to show a bee coming out of the hive.
+				document.getElementById('inc').value = total; // get the id inc and show the current value of the incrementer
 			}
-			document.getElementById('beeButton').addEventListener("click",btnClick);
+			document.getElementById('beeButton').addEventListener("click",btnClick); // get the Bee button and when the button is clicked run the function btnClick
 
 	};
 
@@ -153,7 +153,7 @@
 	<canvas id="bee" width="800" height="600"></canvas><!--Creating a canvas element and giving it a width and a height-->
 
 	<button id="beeButton">Bee</button><!--Creating a HTML button-->
-	<input type ="text" id="inc" value="0">
+	<input type ="text" id="inc" value="0"> <!-- create a text field and show the value of 0. Each time the bee button is clicked the value shown will go up by 1-->
 
 
 </body>
