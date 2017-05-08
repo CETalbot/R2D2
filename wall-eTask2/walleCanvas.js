@@ -182,16 +182,16 @@ ctx.beginPath();
 
 // seccond curve
 ctx.beginPath();
-	DrawBezierCurve(287,15,260,30,368,80,337,20);
-	ctx.closePath();
-	ctx.fillStyle="#5d4730"
-	ctx.fill();
+DrawBezierCurve(287,15,260,30,368,80,337,20);
+ctx.closePath();
+ctx.fillStyle="#5d4730"
+ctx.fill();
 
 
 
 // curve for third part
 ctx.beginPath();
-	DrawBezierCurve(285,25,270,87,381,72,342,37);
+DrawBezierCurve(285,25,270,87,381,72,342,37);
 ctx.closePath();
 ctx.fillStyle = "#5d4730";
 ctx.fill();
@@ -436,17 +436,6 @@ function drawLine(a,b,c,d){
   ctx.stroke();//drawing the lines
 };
 
-
-ctx.beginPath();
-//ctx.moveTo();//beginning the drawing of the line by saying what co-ordinates the line will start from
-drawLine(20,347,20,325);
-//bottom spike on tail
-drawLine(35,341,20,325);
-ctx.closePath();
-ctx.fillStyle = "#009f0d";
-ctx.fill();
-ctx.strokeStyle = "black";
-ctx.stroke();
     
 
   function drawLine(a,b,c,d){
