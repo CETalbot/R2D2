@@ -30,7 +30,7 @@
 			function newBeeFunction(){//creating a function called 'newBeeFunction'. In this function an array is being created to hold all the values for the bees - https://www.w3schools.com/js/js_arrays.asp was used to look at how to create an array
 				bees.total++;//adding one to bees.total
 				bees["bee"+(bees.total)] = {//creating a variable for the bees array and giving it properties
-			 		"src":"bee.svg",//setting the source for the bee image
+			 		"image":new Image(),
 			 		"centreX": 450,//setting the value of the bee
 			 		"centreY": 220,//setting the value of the bee
 			 		"speedX": 4,//setting the speed for the bee on the x axis
@@ -48,6 +48,7 @@
 				}
 			 	}
 
+			 	bees["bee"+(bees.total)].image.src = "bee.svg";
 				console.log(bees);//writing the bees varaible in the window browser to see if the variable works
 
 			};
@@ -96,7 +97,7 @@
 					ctx.save();//saving the state of the canvas
 					//Used https://www.w3schools.com/tags/tryit.asp?filename=tryhtml5_canvas_globalalpha for transparency on images
 					ctx.globalAlpha = bee.transparency;//returning the value of the transparancy of the bee
-					ctx.drawImage(beeImage,currentBee.centreX,currentBee.centreY, x / 25, y / 20);//drawing the image of the bee and then scaling the size of the bee
+					ctx.drawImage(currentBee.image,currentBee.centreX,currentBee.centreY, x / 25, y / 20);//drawing the image of the bee and then scaling the size of the bee
 					ctx.restore();//restoring the state of the anvas to the previous state
 				}
 					//creating boundaries for the canvas so that the bee cannot go outside of the canvas. Also been created are random boundaries to make the bee movement appear more random (see 'changeBoundaries' function). When the bee touches the boundaries if will apeear to 'bounce' off
@@ -105,12 +106,12 @@
 						currentBee.speedX = 1 +Math.floor(Math.random()*currentBee.maxSpeed);
 						// bee.speedY = -bee.speedY;
 						currentBee.speedY = 1 +Math.floor(Math.random()*currentBee.maxSpeed);
-						beeImage.src = "bee.svg";
+						currentBee.image.src = "bee.svg";
 						changeBoundaries(currentBee);
 					}else if (currentBee.centreX + currentBee.speedX > currentBee.boundaryX.max || currentBee.centreY + currentBee.speedY > currentBee.boundaryY.max){ //(|| means or)
 						currentBee.speedX =  -1 - Math.floor(Math.random()*currentBee.maxSpeed);
 						currentBee.speedY = -1 - Math.floor(Math.random()*currentBee.maxSpeed);
-						beeImage.src = "beeLeft.svg";
+						currentBee.image.src = "beeLeft.svg";
 						changeBoundaries(currentBee);
 					}
 
