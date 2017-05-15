@@ -93,10 +93,10 @@
 				for (var i=1; i<= bees.total; i++){//creating a for loop to loop through the bees array
 					var currentBee = bees["bee"+i];
 				if(currentBee.timer>= 0){//if the timer is greater than 0 then the following code will be ran. Basically if the timer is greater than 0 the animation will run
-					console.log(currentBee.timer);//writing the timer varaible in the window browser to see if the timer works and it count downs from 900 to 0
+					// console.log(currentBee.timer);//writing the timer varaible in the window browser to see if the timer works and it count downs from 900 to 0
 					ctx.save();//saving the state of the canvas
 					//Used https://www.w3schools.com/tags/tryit.asp?filename=tryhtml5_canvas_globalalpha for transparency on images
-					ctx.globalAlpha = bee.transparency;//returning the value of the transparancy of the bee
+					ctx.globalAlpha = currentBee.transparency;//returning the value of the transparancy of the bee
 					ctx.drawImage(currentBee.image,currentBee.centreX,currentBee.centreY, x / 25, y / 20);//drawing the image of the bee and then scaling the size of the bee
 					ctx.restore();//restoring the state of the anvas to the previous state
 				}
@@ -120,7 +120,8 @@
 						currentBee.transparency = 1;
 					}
 					// //changing the transparency of the bee image after a set amount of time
-					if(currentBee.timer <= 180){
+					if(currentBee.timer < 180){
+						console.log(currentBee.timer);
 						currentBee.transparency -= 1/180
 					}
 					if (currentBee.timer <= 900 && currentBee.timer >= 0){
