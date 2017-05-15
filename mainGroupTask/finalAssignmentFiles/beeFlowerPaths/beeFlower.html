@@ -7,6 +7,14 @@
 		canvas {border:1px solid black;}/*setting the styling for the canvas*/
 		canvas {background: url('flowerSession.svg');
 		background-size: cover;}
+		#buttonOne, #buttonTwo, #buttonThree, #buttonFour, #buttonFive, #buttonReset{ /* setting the style and positioning of the buttons*/
+		padding: 15px 32px;
+		font-size: 16px; 
+		margin: 4px 2px; 
+		float:left;}
+
+	#session1CurrentValue, #session2CurrentValue, #session3CurrentValue, #session4CurrentValue, #session5CurrentValue{/*setting the positioning */
+		float:left;}
 	</style>
 	<script type="text/javascript">
 
@@ -29,16 +37,16 @@
 			function newBeeFunction(buttonNo){//creating a function called 'newBeeFunction'. In this function an array is being created to hold all the values for the bees - https://www.w3schools.com/js/js_arrays.asp was used to look at how to create an array
 					bees.total++;//adding one to bees.total
 					bees["bee"+(bees.total)] = {//creating a variable for the bee and giving it properties
-			 		"src":"bee.svg",//setting the source for the bee image
+			 		"src":"beeLeft.svg",//setting the source for the bee image
 			 		"transparency":1,//setting the transparency value for the bee. 1 means that the bee is fully visable
 			 		"timer":150,//setting the value of the timer to 3 seconds. Once the timer starts (see code below) it will count down from 900 to 0 and then fade out
 			 		"point0": {//setting the properties for the curve for the path on the x and y axis - point0
-					"x":400,//value of the point on the x axis
-					"y":200,//value of the point on the y axis
+					"x":460,//value of the point on the x axis
+					"y":215,//value of the point on the y axis
 				},
 			 		"point1": {//setting the properties for the curve for the path on the x and y axis - point1
-					"x":70,//value of the point on the x axis
-					"y":200,//value of the point on the y axis
+					"x":440,//value of the point on the x axis
+					"y":220,//value of the point on the y axis
 				},//these point values have been assigned to each bee because these points do not change along the path. See the if statement below which has been created for the points that do need to change for each bee depending on which button has been pressed
 				"travelPosition":0,//setting the position of the bee along the path. 0 means that the bee is starting at the start point of the path
 				"speed":0.01,//setting the speed for the bee
@@ -64,7 +72,7 @@
 				};}
 				else if(buttonNo===3){//if button 3 has been pressed
 					bees["bee"+(bees.total)].point2 = {//setting the properties for the curve for the path on the x and y axis - point2
-					"x":150,//value of the point on the x axis
+					"x":290,//value of the point on the x axis
 					"y":260,//value of the point on the y axis
 				};
 				bees["bee"+(bees.total)].point3 = {//setting the properties for the curve for the path on the x and y axis - point3
@@ -73,7 +81,7 @@
 				};}
 				else if(buttonNo===4){//if button 4 has been pressed
 					bees["bee"+(bees.total)].point2 = {//setting the properties for the curve for the path on the x and y axis - point2
-					"x":170,//value of the point on the x axis
+					"x":450,//value of the point on the x axis
 					"y":240,//value of the point on the y axis
 				};
 				bees["bee"+(bees.total)].point3 = {//setting the properties for the curve for the path on the x and y axis - point3
@@ -82,7 +90,7 @@
 				};}
 				else if(buttonNo===5){//if button 5 has been pressed
 					bees["bee"+(bees.total)].point2 = {//setting the properties for the curve for the path on the x and y axis - point2
-					"x":190,//value of the point on the x axis
+					"x":500,//value of the point on the x axis
 					"y":230,//value of the point on the y axis
 				};
 				bees["bee"+(bees.total)].point3 = {//setting the properties for the curve for the path on the x and y axis - point3
@@ -98,7 +106,7 @@
 
 			//creating the hive and bee images inside the canvas. Referenced from https://developer.mozilla.org/en-US/docs/Web/API/HTMLImageElement/Image
 			var beeImage = new Image();//creating a new image called 'beeImage'
-			beeImage.src = "bee.svg";//setting the source for 'beeImage'
+			beeImage.src = "beeLeft.svg";//setting the source for 'beeImage'
 
 			var beeHive = new Image();
 			beeHive.src = "beeHive.svg";
@@ -201,73 +209,34 @@
 
 
 	</script>
-</head>
-<body>
 
-<style type="text/css">
-#buttonOne{ /* setting the style and positioning of buttonOne*/
-padding: 15px 32px;
-font-size: 16px;
-	margin: 4px 2px;
-}
 
-#buttonTwo{ /* setting the style and positioning of buttonTwo */
-padding: 15px 32px;
-font-size: 16px;
-	margin: 4px 2px;
-}
-
-#buttonThree{ /* setting the style and positioning of buttonThree */
-padding: 15px 32px;
-font-size: 16px;
-	margin: 4px 2px;
-}
-
-#buttonFour{ /* setting the style and positioning of buttonFour */
-padding: 15px 32px;
-font-size: 16px;
-	margin: 4px 2px;
-}
-
-#buttonFive{ /* setting the style and positioning of buttonFive */
-padding: 15px 32px;
-font-size: 16px;
-	margin: 4px 2px;
-}
-
-#buttonReset{ /* setting the style and positioning of buttonReset*/
-padding: 15px 32px;
-font-size: 16px;
-	margin: 4px 2px;
-}
-</style>
 	<canvas id="bee" width="800" height="600"></canvas><!--Creating a canvas element and giving it a width and a height-->
-<div id="buttons">
-<button Id="buttonOne">Session 1</button> <!-- create session 1 button-->
 
+	<div id="buttons">
+	<button Id="buttonOne">Session 1</button> <!-- create session 1 button-->
 	<div id="session1CurrentValue"></div> <!-- shows the current value stored in the local storage for first session-->
 
 
-<button id="buttonTwo">Session 2</button> <!-- create session 2 button-->
-<div id="session2CurrentValue"></div>  <!-- shows the current value stored in the local storage for seccond session-->
+	<button id="buttonTwo">Session 2</button> <!-- create session 2 button-->
+	<div id="session2CurrentValue"></div>  <!-- shows the current value stored in the local storage for seccond session-->
 
 
-
-<button id="buttonThree">Session 3</button> <!-- create session 3 button-->
-<div id="session3CurrentValue"></div>  <!-- shows the current value stored in the local storage for third session-->
-
-
-<button id="buttonFour">Session 4</button> <!-- create session 4 button-->
-<div id="session4CurrentValue"></div>  <!-- shows the current value stored in the local storage for fourth session-->
+	<button id="buttonThree">Session 3</button> <!-- create session 3 button-->
+	<div id="session3CurrentValue"></div>  <!-- shows the current value stored in the local storage for third session-->
 
 
-<button id="buttonFive">Session 5</button> <!-- create session 5 button-->
-<div id="session5CurrentValue"></div>  <!-- shows the current value stored in the local storage for fifth session-->
+	<button id="buttonFour">Session 4</button> <!-- create session 4 button-->
+	<div id="session4CurrentValue"></div>  <!-- shows the current value stored in the local storage for fourth session-->
 
-<button id="buttonReset">Reset</button> <!-- create resetbutton-->
-</div>
+
+	<button id="buttonFive">Session 5</button> <!-- create session 5 button-->
+	<div id="session5CurrentValue"></div>  <!-- shows the current value stored in the local storage for fifth session-->
+
+	<button id="buttonReset">Reset</button> <!-- create resetbutton-->
+	</div>
 	
-	<script src="localStorage.js"></script>
+<script src="localStorage.js"></script>
 
 </body>
 </html>
