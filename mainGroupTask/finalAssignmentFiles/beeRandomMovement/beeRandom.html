@@ -117,11 +117,11 @@
 
 					//if the timer reaches 0 then the timer will be 'reset' and the image will not be transparent
 					if(currentBee.timer == 0){
-						bee.transparency = 1;
+						currentBee.transparency = 1;
 					}
 					// //changing the transparency of the bee image after a set amount of time
 					if(currentBee.timer <= 180){
-						bee.transparency -= 1/180
+						currentBee.transparency -= 1/180
 					}
 					if (currentBee.timer <= 900 && currentBee.timer >= 0){
 						currentBee.timer--;//decreaing the value of the timer
