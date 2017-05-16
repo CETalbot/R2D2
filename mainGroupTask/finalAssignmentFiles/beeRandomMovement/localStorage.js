@@ -1,5 +1,5 @@
 
-//event listners for buttons
+//event listeners for buttons
 document.getElementById("buttonOne").addEventListener("click", Session1); // get the session 1 button and when clicked run the function session 1
 
 function Session1() { // create function session 1
