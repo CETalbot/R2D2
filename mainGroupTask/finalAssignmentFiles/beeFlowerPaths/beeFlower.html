@@ -31,6 +31,73 @@
 			//working out width and height of canvas size
 			var x = canvas.width;//creating a varaible to store the value for the width of the canvas
 			var y = canvas.height;//creating a variable to store the value for the height of the canvas
+			//event listeners for buttons
+			document.getElementById("buttonOne").addEventListener("click", Session1); // get the session 1 button and when clicked run the function session 1
+
+			function Session1() { // create function session 1
+		    if(typeof(Storage) !== "undefined") { // if local storage is supported in the browser.
+		        if (localStorage.session1ButtonClicked) { // if the session one button is clicked
+		            localStorage.session1ButtonClicked = Number(localStorage.session1ButtonClicked)+1; // store the button click  in the local storage and add one to the current value
+		        } else { // if button isint pressed
+		            localStorage.session1ButtonClicked = 1; // show the current value that is stored inside the local storage
+		        }
+		    }
+		}
+
+			document.getElementById("buttonTwo").addEventListener("click", Session2);// get the session 2 button and when clicked run the function session 2
+				function Session2() { // create function session 2
+				    if(typeof(Storage) !== "undefined") {  // if local storage is supported in the browser.
+				        if (localStorage.session2ButtonClicked) { // if the session two button is clicked
+				            localStorage.session2ButtonClicked = Number(localStorage.session2ButtonClicked)+1; // store the button click  in the local storage and add one to the current value
+				        } else { // if button isint pressed
+				            localStorage.session2ButtonClicked = 1; // show the current value that is stored inside the local storage
+				        }
+				    }
+			    }
+
+
+		    document.getElementById("buttonThree").addEventListener("click", Session3);// get the session 3 button and when clicked run the function session 3
+				function Session3() { // create function session 3
+				    if(typeof(Storage) !== "undefined") { // if local storage is supported in the browser.
+				        if (localStorage.session3ButtonClicked) { // if the session three button is clicked
+				            localStorage.session3ButtonClicked = Number(localStorage.session3ButtonClicked)+1; // store the button click  in the local storage and add one to the current value
+				        } else { // if button isint pressed
+				            localStorage.session3ButtonClicked = 1; // show the current value that is stored inside the local storage
+				        }
+				    }
+			    }
+
+
+		    document.getElementById("buttonFour").addEventListener("click", Session4);// get the session 4 button and when clicked run the function session 4
+
+				function Session4() { // create function session 4
+				    if(typeof(Storage) !== "undefined") { // if local storage is supported in the browser.
+				        if (localStorage.session4ButtonClicked) { //  if the session four button is clicked
+				            localStorage.session4ButtonClicked = Number(localStorage.session4ButtonClicked)+1; // store the button click  in the local storage and add one to the current value
+				        } else { // if button isint pressed
+				            localStorage.session4ButtonClicked = 1; // show the current value that is stored inside the local storage
+				        }
+				    }
+			    }
+
+
+		    document.getElementById("buttonFive").addEventListener("click", Session5);// get the session 5 button and when clicked run the function session 5
+				function Session5() { // create function session 5
+				    if(typeof(Storage) !== "undefined") {  // if local storage is supported in the browser.
+				        if (localStorage.session5ButtonClicked) { //  if the session five button is clicked
+				            localStorage.session5ButtonClicked = Number(localStorage.session5ButtonClicked)+1;  // store the button click in the local storage and add one to the current value
+				        } else { // if button isint pressed
+				            localStorage.session5ButtonClicked = 1; // show the current value that is stored inside the local storage
+				        }
+				    }
+			    }
+
+			    document.getElementById("buttonReset").addEventListener("click", reset);// get the reset button and when clicked run the function reset
+			    function reset() { // create a function called reset
+				  localStorage.clear(); // if the reset button is pressed then clear any of the values inside of the local storage.
+				}
+
+				// code refrenced from https://www.w3schools.com/html/tryit.asp?filename=tryhtml5_webstorage_local_clickcount
 
 
 			//Used https://www.w3schools.com/js/js_properties.asp to look at the syntax for adding multiple properties to a variable
@@ -51,6 +118,7 @@
 				"travelPosition":0,//setting the position of the bee along the path. 0 means that the bee is starting at the start point of the path
 				"speed":0.01,//setting the speed for the bee
 			 	}
+			 	
 			 	//an if statement which changes the value of point2 and point3 when a certain session button has been pressed. This enables the bee to follow different paths to land on the different flowers
 				if(buttonNo===1){//if button 1 has been pressed
 					bees["bee"+(bees.total)].point2 = {//setting the properties for the curve for the path on the x and y axis - point2
@@ -120,6 +188,25 @@
 			ctx.clearRect(0,0,x,y);//clears whole of canvas
 			ctx.drawImage(beeHive, 0, 0, x, y);//drawing the hive image within the canvas
 
+			ctx.font = "20px Calibri";
+		  	ctx.fillStyle = "white";
+		  	ctx.fillText(localStorage.session1ButtonClicked,45,465);
+
+		  	ctx.font = "20px Calibri";
+		  	ctx.fillStyle = "white";
+		  	ctx.fillText(localStorage.session2ButtonClicked,127,465);
+
+		  	ctx.font = "20px Calibri";
+		  	ctx.fillStyle = "white";
+		  	ctx.fillText(localStorage.session3ButtonClicked,210,465);
+
+		  	ctx.font = "20px Calibri";
+		  	ctx.fillStyle = "white";
+		  	ctx.fillText(localStorage.session4ButtonClicked,293,465);
+
+		  	ctx.font = "20px Calibri";
+		  	ctx.fillStyle = "white";
+		  	ctx.fillText(localStorage.session5ButtonClicked,377,465);
 
 			//for loop referencded from https://www.w3schools.com/js/js_loop_for.asp
 			for (var i=1; i<= bees.total; i++){//creating a for loop to loop through the bees array
@@ -215,28 +302,22 @@
 
 	<div id="buttons">
 	<button Id="buttonOne">Session 1</button> <!-- create session 1 button-->
-	<div id="session1CurrentValue"></div> <!-- shows the current value stored in the local storage for first session-->
 
 
 	<button id="buttonTwo">Session 2</button> <!-- create session 2 button-->
-	<div id="session2CurrentValue"></div>  <!-- shows the current value stored in the local storage for seccond session-->
 
 
 	<button id="buttonThree">Session 3</button> <!-- create session 3 button-->
-	<div id="session3CurrentValue"></div>  <!-- shows the current value stored in the local storage for third session-->
 
 
 	<button id="buttonFour">Session 4</button> <!-- create session 4 button-->
-	<div id="session4CurrentValue"></div>  <!-- shows the current value stored in the local storage for fourth session-->
 
 
 	<button id="buttonFive">Session 5</button> <!-- create session 5 button-->
-	<div id="session5CurrentValue"></div>  <!-- shows the current value stored in the local storage for fifth session-->
 
 	<button id="buttonReset">Reset</button> <!-- create resetbutton-->
 	</div>
 	
-<script src="localStorage.js"></script>
 
 </body>
 </html>
