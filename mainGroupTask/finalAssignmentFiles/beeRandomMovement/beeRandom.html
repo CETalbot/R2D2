@@ -6,7 +6,7 @@
 	<style type="text/css">
 		canvas {border:1px solid black;}/*setting the styling for the canvas*/
 		canvas {background: url('hiveTotal.svg');
-		background-size: cover;
+		background-size: 100% 100%;
 	}
 	</style>
 
@@ -22,9 +22,8 @@
 			var ctx = canvas.getContext('2d');
 
 			canvas.height = canvas.width / 1.4;//using this calculation to draw the bee to the correct proportion so it is not squished or stretched
-			var x = canvas.width;//creating a varaible to store the value for the width of the canvas
-			var y = canvas.height;//creating a variable to store the value for the height of the canvas
-
+			canvas.width = window.innerWidth;
+			canvas.height = window.innerHeight;
 
 
 			//Used https://www.w3schools.com/js/js_properties.asp to look at the syntax for adding multiple properties to a variable
@@ -41,11 +40,11 @@
 			 		"timer":900,//setting the value of the timer to 15 seconds. Once the timer starts (see code below) it will count down from 900 to 0 and then fade out
 			 		"boundaryX": {//setting the properties for the boundary - x axis
 					"min": 0,//the minimum value the boundary can be on the y axis is 0
-					"max": x,//the maximum value the boundary can be on the x axis is the value of width of the canvas
+					"max": canvas.width,//the maximum value the boundary can be on the x axis is the value of width of the canvas
 				},
 				"boundaryY":{//setting the properties for the boundary - y axis
 					"min": 0,//the minimum value the boundary can be on the y axis is 0
-					"max": y,//the maximum value the boundary can be on the y axis is the value of the height of the canvas
+					"max": canvas.height,//the maximum value the boundary can be on the y axis is the value of the height of the canvas
 				}
 			 	}
 
@@ -72,14 +71,14 @@
 			//if statements referenced from https://www.w3schools.com/js/js_if_else.asp
 			function changeBoundaries(bee) {
 				if (bee.centreX - bee.boundaryX.min >= bee.boundaryX.max - bee.centreX) {
-					bee.boundaryX.min = Math.floor(Math.random() * (x / 2));//using Math.random to create a random number for the x axis
+					bee.boundaryX.min = Math.floor(Math.random() * (canvas.width / 2));//using Math.random to create a random number for the x axis
 				} else {
-					bee.boundaryX.max = (x / 2) + Math.floor(Math.random() * (x / 2));
+					bee.boundaryX.max = (canvas.width / 2) + Math.floor(Math.random() * (canvas.width / 2));
 				}
 				if (bee.centreY - bee.boundaryY.min >= bee.boundaryY.max - bee.centreY) {//using Math.random to create a random number for the y axis
-					bee.boundaryY.min = Math.floor(Math.random() * (y / 2));
+					bee.boundaryY.min = Math.floor(Math.random() * (canvas.height / 2));
 				} else {
-					bee.boundaryY.max = (y / 2) + Math.floor(Math.random() * (y / 2));
+					bee.boundaryY.max = (canvas.height / 2) + Math.floor(Math.random() * (canvas.height / 2));
 				}
 			}
 
@@ -99,11 +98,11 @@
 }
 
 			function animate(){//creating a function called 'animate'
-				ctx.clearRect(0,0,x,y);//clearing the canvas
+				ctx.clearRect(0,0,canvas.width,canvas.height);//clearing the canvas
 				// ctx.rect(scene.boundaryX.min, scene.boundaryY.min, scene.boundaryX.max, scene.boundaryY.max); //using this to draw a rectangle to show the boundaries to see if they are working
 				// ctx.stroke();//drawing the rectangle
 				//for loop referencded from https://www.w3schools.com/js/js_loop_for.asp
-				ctx.drawImage(beeHive,0,0,x,y);//drawing the image of the hive
+				ctx.drawImage(beeHive,0,0,canvas.width,canvas.height);//drawing the image of the hive
 				//referenced by https://www.w3schools.com/graphics/canvas_text.asp
 			  //font of name
 			  ctx.font = "40px Calibri";
@@ -116,7 +115,7 @@
 					ctx.save();//saving the state of the canvas
 					//Used https://www.w3schools.com/tags/tryit.asp?filename=tryhtml5_canvas_globalalpha for transparency on images
 					ctx.globalAlpha = currentBee.transparency;//returning the value of the transparancy of the bee
-					ctx.drawImage(currentBee.image,currentBee.centreX,currentBee.centreY, x / 25, y / 20);//drawing the image of the bee and then scaling the size of the bee
+					ctx.drawImage(currentBee.image,currentBee.centreX,currentBee.centreY, canvas.width / 25, canvas.height / 20);//drawing the image of the bee and then scaling the size of the bee
 					ctx.restore();//restoring the state of the anvas to the previous state
 				}
 					//creating boundaries for the canvas so that the bee cannot go outside of the canvas. Also been created are random boundaries to make the bee movement appear more random (see 'changeBoundaries' function). When the bee touches the boundaries if will apeear to 'bounce' off
@@ -167,7 +166,7 @@
 
 </head>
 <body>
-	<canvas id="bee" width="800" height="600"></canvas><!--Creating a canvas element and giving it a width and a height-->
+	<canvas id="bee"></canvas><!--Creating a canvas element and giving it a width and a height-->
 
 	<button Id="buttonOne">Session 1</button> <!-- create session 1 button-->
 </body>
