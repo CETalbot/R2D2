@@ -6,7 +6,7 @@
 	<style type="text/css">
 		canvas {border:1px solid black;}/*setting the styling for the canvas*/
 		canvas {background: url('flowerSession.svg');
-		background-size: cover;}
+		background-size: 100%,100%;}
 		#buttonOne, #buttonTwo, #buttonThree, #buttonFour, #buttonFive, #buttonReset{ /* setting the style and positioning of the buttons*/
 		padding: 15px 32px;
 		font-size: 16px; 
@@ -29,8 +29,8 @@
 			//this code works out the proportion of the bee compared to the canvas
 			canvas.height = canvas.width / 1.4;
 			//working out width and height of canvas size
-			var x = canvas.width;//creating a varaible to store the value for the width of the canvas
-			var y = canvas.height;//creating a variable to store the value for the height of the canvas
+			canvas.width = window.innerWidth;//creating a varaible to store the value for the width of the canvas
+			canvas.height = window.innerHeight;//creating a variable to store the value for the height of the canvas
 			//event listeners for buttons
 			document.getElementById("buttonOne").addEventListener("click", Session1); // get the session 1 button and when clicked run the function session 1
 
@@ -108,12 +108,12 @@
 			 		"transparency":1,//setting the transparency value for the bee. 1 means that the bee is fully visable
 			 		"timer":150,//setting the value of the timer to 3 seconds. Once the timer starts (see code below) it will count down from 900 to 0 and then fade out
 			 		"point0": {//setting the properties for the curve for the path on the x and y axis - point0
-					"x":460,//value of the point on the x axis
-					"y":215,//value of the point on the y axis
+					"x":canvas.width*0.69,//value of the point on the x axis
+					"y":canvas.height*0.3,//value of the point on the y axis
 				},
 			 		"point1": {//setting the properties for the curve for the path on the x and y axis - point1
-					"x":440,//value of the point on the x axis
-					"y":220,//value of the point on the y axis
+					"x":canvas.width*0.5,//value of the point on the x axis
+					"y":canvas.height*0.47,//value of the point on the y axis
 				},//these point values have been assigned to each bee because these points do not change along the path. See the if statement below which has been created for the points that do need to change for each bee depending on which button has been pressed
 				"travelPosition":0,//setting the position of the bee along the path. 0 means that the bee is starting at the start point of the path
 				"speed":0.01,//setting the speed for the bee
@@ -122,48 +122,48 @@
 			 	//an if statement which changes the value of point2 and point3 when a certain session button has been pressed. This enables the bee to follow different paths to land on the different flowers
 				if(buttonNo===1){//if button 1 has been pressed
 					bees["bee"+(bees.total)].point2 = {//setting the properties for the curve for the path on the x and y axis - point2
-					"x":125,//value of the point on the x axis
-					"y":295,//value of the point on the y axis
+					"x":canvas.width,//value of the point on the x axis
+					"y":canvas.height,//value of the point on the y axis
 				};
 				bees["bee"+(bees.total)].point3 = {//setting the properties for the curve for the path on the x and y axis - point3
-					"x":30,//value of the point on the x axis
-					"y":270,//value of the point on the y axis
+					"x":canvas.width,//value of the point on the x axis
+					"y":canvas.height,//value of the point on the y axis
 				};}
 				else if (buttonNo===2){//if button 2 has been pressed
 					bees["bee"+(bees.total)].point2 = {//setting the properties for the curve for the path on the x and y axis - point2
-					"x":120,//value of the point on the x axis
-					"y":260,//value of the point on the y axis
+					"x":canvas.width,//value of the point on the x axis
+					"y":canvas.height,//value of the point on the y axis
 				};
 				bees["bee"+(bees.total)].point3 = {//setting the properties for the curve for the path on the x and y axis - point3
-					"x":105,//value of the point on the x axis
-					"y":270,//value of the point on the y axis
+					"x":canvas.width,//value of the point on the x axis
+					"y":canvas.height,//value of the point on the y axis
 				};}
 				else if(buttonNo===3){//if button 3 has been pressed
 					bees["bee"+(bees.total)].point2 = {//setting the properties for the curve for the path on the x and y axis - point2
-					"x":290,//value of the point on the x axis
-					"y":260,//value of the point on the y axis
+					"x":canvas.width,//value of the point on the x axis
+					"y":canvas.height,//value of the point on the y axis
 				};
 				bees["bee"+(bees.total)].point3 = {//setting the properties for the curve for the path on the x and y axis - point3
-					"x":190,//value of the point on the x axis
-					"y":270,//value of the point on the y axis
+					"x":canvas.width,//value of the point on the x axis
+					"y":canvas.height,//value of the point on the y axis
 				};}
 				else if(buttonNo===4){//if button 4 has been pressed
 					bees["bee"+(bees.total)].point2 = {//setting the properties for the curve for the path on the x and y axis - point2
-					"x":450,//value of the point on the x axis
-					"y":240,//value of the point on the y axis
+					"x":canvas.width,//value of the point on the x axis
+					"y":canvas.height,//value of the point on the y axis
 				};
 				bees["bee"+(bees.total)].point3 = {//setting the properties for the curve for the path on the x and y axis - point3
-					"x":275,//value of the point on the x axis
-					"y":270,//value of the point on the y axis
+					"x":canvas.width,//value of the point on the x axis
+					"y":canvas.height,//value of the point on the y axis
 				};}
 				else if(buttonNo===5){//if button 5 has been pressed
 					bees["bee"+(bees.total)].point2 = {//setting the properties for the curve for the path on the x and y axis - point2
-					"x":500,//value of the point on the x axis
-					"y":230,//value of the point on the y axis
+					"x":canvas.width,//value of the point on the x axis
+					"y":canvas.height,//value of the point on the y axis
 				};
 				bees["bee"+(bees.total)].point3 = {//setting the properties for the curve for the path on the x and y axis - point3
-					"x":360,//value of the point on the x axis
-					"y":270,//value of the point on the y axis
+					"x":canvas.width,//value of the point on the x axis
+					"y":canvas.height,//value of the point on the y axis
 				};}
 
 
@@ -185,28 +185,28 @@
 
 			//creating function animation for bee to flow a path
 			function bee(){
-			ctx.clearRect(0,0,x,y);//clears whole of canvas
-			ctx.drawImage(beeHive, 0, 0, x, y);//drawing the hive image within the canvas
+			ctx.clearRect(0, 0, canvas.width, canvas.height);//clears whole of canvas
+			ctx.drawImage(beeHive, 0, 0, canvas.width, canvas.height);//drawing the hive image within the canvas
 
 			ctx.font = "20px Calibri";
 		  	ctx.fillStyle = "white";
-		  	ctx.fillText(localStorage.session1ButtonClicked,45,465);
+		  	ctx.fillText(localStorage.session1ButtonClicked,canvas.width*0.056,canvas.height*0.78);
 
 		  	ctx.font = "20px Calibri";
 		  	ctx.fillStyle = "white";
-		  	ctx.fillText(localStorage.session2ButtonClicked,127,465);
+		  	ctx.fillText(localStorage.session2ButtonClicked,canvas.width*0.134,canvas.height*0.78);
 
 		  	ctx.font = "20px Calibri";
 		  	ctx.fillStyle = "white";
-		  	ctx.fillText(localStorage.session3ButtonClicked,210,465);
+		  	ctx.fillText(localStorage.session3ButtonClicked,canvas.width*0.21,canvas.height*0.78);
 
 		  	ctx.font = "20px Calibri";
 		  	ctx.fillStyle = "white";
-		  	ctx.fillText(localStorage.session4ButtonClicked,293,465);
+		  	ctx.fillText(localStorage.session4ButtonClicked,canvas.width*0.287,canvas.height*0.78);
 
 		  	ctx.font = "20px Calibri";
 		  	ctx.fillStyle = "white";
-		  	ctx.fillText(localStorage.session5ButtonClicked,377,465);
+		  	ctx.fillText(localStorage.session5ButtonClicked,canvas.width*0.362,canvas.height*0.78);
 
 			//for loop referencded from https://www.w3schools.com/js/js_loop_for.asp
 			for (var i=1; i<= bees.total; i++){//creating a for loop to loop through the bees array
@@ -252,7 +252,7 @@
 			ctx.save();//saving the state of the canvas
 			ctx.globalAlpha = currentBee.transparency;//returning the value of the transparancy of the bee
 			//draws the bee image inside the canvas
-			ctx.drawImage(beeImage, currentBee.xtravel, currentBee.ytravel, x / 25, y / 20);
+			ctx.drawImage(beeImage, currentBee.xtravel, currentBee.ytravel, canvas.width / 30, canvas.width / 30);
 			ctx.restore();//restoring the state of the anvas to the previous state
 
 		}
